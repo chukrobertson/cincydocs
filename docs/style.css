@@ -1,0 +1,460 @@
+/* ==============================================
+   Cincinnati Document Services — Style
+   Palette: charcoal, parchment, maroon, gold
+   ============================================== */
+
+:root {
+  --black:    #0d0d0d;
+  --charcoal: #1a1816;
+  --slate:    #2c2926;
+  --marble:   #3a3530;
+  --grey:     #8a8680;
+  --grey-lt:  #b8b3ab;
+  --parchment:    #f3e8d6;
+  --parchment-dk: #e6d7bd;
+  --maroon:       #660c1a;
+  --maroon-dk:    #4a0011;
+  --blood:        #8b1a1a;
+  --gold:         #c49a2a;
+  --gold-dk:      #9e7820;
+  --white:        #ffffff;
+  --wax-red:      #a31621;
+
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--grey-lt);
+  background-color: var(--charcoal);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(60, 50, 45, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(30, 25, 22, 0.8) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--parchment);
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2rem, 6vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+/* ---- Container ---- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-maroon {
+  background-color: var(--maroon);
+  color: var(--parchment);
+  border-color: var(--maroon);
+}
+.btn-maroon:hover,
+.btn-maroon:focus {
+  background-color: var(--blood);
+  border-color: var(--blood);
+  color: var(--white);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: var(--gold-dk);
+  border-color: var(--gold-dk);
+  color: var(--white);
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.btn-header {
+  padding: 0.5rem 1.4rem;
+  font-size: 0.75rem;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--parchment);
+  border-color: var(--maroon);
+}
+.btn-outline:hover,
+.btn-outline:focus {
+  background-color: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--white);
+}
+
+.btn-group {
+  display: inline-flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ---- Header ---- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.75rem 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo .seal {
+  font-size: 1.8rem;
+  color: var(--gold);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-line1 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--parchment);
+  line-height: 1;
+}
+
+.logo-line2 {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--grey);
+  line-height: 1;
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Seal mark */
+.seal-mark {
+  margin-bottom: 2rem;
+}
+
+.seal-outer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--gold) 0deg 15deg,
+    var(--parchment-dk) 15deg 30deg,
+    var(--gold) 30deg 60deg,
+    var(--parchment-dk) 60deg 80deg,
+    var(--gold) 80deg 100deg,
+    var(--parchment-dk) 100deg 130deg,
+    var(--gold) 130deg 150deg,
+    var(--parchment-dk) 150deg 180deg,
+    var(--gold) 180deg 200deg,
+    var(--parchment-dk) 200deg 230deg,
+    var(--gold) 230deg 250deg,
+    var(--parchment-dk) 250deg 280deg,
+    var(--gold) 280deg 300deg,
+    var(--parchment-dk) 300deg 330deg,
+    var(--gold) 330deg 360deg
+  );
+  box-shadow: 0 0 30px rgba(196, 154, 42, 0.15);
+}
+
+.seal-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--parchment), var(--parchment-dk));
+  border: 2px solid var(--gold);
+}
+
+.seal-icon {
+  font-size: 2rem;
+  color: var(--maroon);
+}
+
+.tagline {
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: var(--parchment);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--grey);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ---- Services ---- */
+.services {
+  padding: 4rem 0;
+  background-color: var(--slate);
+  background-image:
+    linear-gradient(180deg, rgba(26, 24, 22, 0) 0%, var(--slate) 100%);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 0.7em;
+  opacity: 0.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: rgba(245, 232, 214, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--maroon);
+  background-color: rgba(102, 12, 26, 0.06);
+}
+
+.card-seal {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.service-card h3 {
+  color: var(--parchment);
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+/* ---- Service Area ---- */
+.service-area {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.area-text {
+  max-width: 720px;
+  margin: 0 auto 1.25rem;
+  font-size: 1.05rem;
+  color: var(--grey);
+  line-height: 1.8;
+}
+
+.area-text strong {
+  color: var(--parchment);
+  font-weight: 500;
+}
+
+/* ---- CTA Section ---- */
+.cta {
+  padding: 4rem 0 5rem;
+}
+
+.cta-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 232, 214, 0.05) 0%,
+    rgba(245, 232, 214, 0.02) 100%
+  );
+  border: 1px solid rgba(196, 154, 42, 0.2);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
+}
+
+.cta-seal {
+  margin-bottom: 1.5rem;
+}
+
+.seal-sm {
+  width: 64px;
+  height: 64px;
+}
+
+.seal-inner-sm {
+  width: 48px;
+  height: 48px;
+}
+
+.seal-icon-sm {
+  font-size: 1.3rem;
+  color: var(--maroon);
+}
+
+.cta-card h2 {
+  margin-bottom: 0.75rem;
+  color: var(--parchment);
+}
+
+.cta-card p {
+  color: var(--grey);
+  margin-bottom: 1.5rem;
+}
+
+.cta-note {
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--marble);
+  font-style: italic;
+}
+
+/* ---- Footer ---- */
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--marble);
+}
+
+.footer-link {
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-link:hover,
+.footer-link:focus {
+  color: var(--parchment);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .logo-line2 {
+    display: none;
+  }
+
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
