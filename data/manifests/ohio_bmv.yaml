@@ -1,0 +1,90 @@
+forms:
+  - slug: ohio-bmv-vehicle-power-of-attorney
+    title: Ohio BMV Power of Attorney for Certificate of Title
+    form_number: BMV 3771
+    agency: Ohio Bureau of Motor Vehicles
+    jurisdiction: Ohio
+    category: Motor vehicles
+    description: Allows a vehicle owner to authorize another person to sign title paperwork and handle BMV title transactions on their behalf.
+    plain_language_summary: This form lets you give someone else permission to sign title paperwork and handle BMV transactions for your vehicle. People commonly use this when they cannot go to the BMV in person or when a title agency is handling a vehicle sale.
+    official_page_url: https://www.bmv.ohio.gov/doc-forms.aspx
+    official_download_url: https://publicsafety.ohio.gov/links/bmv3771.pdf
+    redistribution_status: review_required
+    publication_status: link_only
+    review_level: standard
+    tags:
+      - vehicle title
+      - auto title
+      - power of attorney
+      - title agent
+      - sell my car
+      - transfer title
+      - someone else sign my title
+      - BMV forms
+      - Ohio car title
+
+  - slug: ohio-bmv-certificate-of-title
+    title: Ohio BMV Application for Certificate of Title to a Motor Vehicle
+    form_number: BMV 3774
+    agency: Ohio Bureau of Motor Vehicles
+    jurisdiction: Ohio
+    category: Motor vehicles
+    description: Application for an Ohio certificate of title. Used for obtaining a new title, duplicate title, or transfer of title.
+    plain_language_summary: This is the main form used to apply for an Ohio vehicle certificate of title. Use it when you buy a vehicle, lose your title and need a replacement marked "DUPLICATE," or transfer ownership. There is a fee. You will need to provide identification and proof of ownership.
+    official_page_url: https://www.bmv.ohio.gov/doc-forms.aspx
+    official_download_url: https://publicsafety.ohio.gov/links/bmv3774.pdf
+    redistribution_status: review_required
+    publication_status: link_only
+    review_level: standard
+    tags:
+      - lost title
+      - replacement title
+      - duplicate title
+      - new title
+      - Ohio car title
+      - BMV forms
+      - car paperwork
+      - vehicle title
+
+  - slug: ohio-bmv-casual-sale-title
+    title: Ohio BMV Ownership Assignment and Title Application for Casual Sale
+    form_number: BMV 3770
+    agency: Ohio Bureau of Motor Vehicles
+    jurisdiction: Ohio
+    category: Motor vehicles
+    description: Title application and ownership assignment for a casual (private party) sale of a motor vehicle in Ohio.
+    plain_language_summary: This form is used when you buy or sell a vehicle through a private sale (not from a dealership) in Ohio. It serves as both the title application and the ownership assignment. The seller signs over the title and the buyer applies for a new title in their name.
+    official_page_url: https://www.bmv.ohio.gov/doc-forms.aspx
+    official_download_url: https://publicsafety.ohio.gov/links/bmv3770.pdf
+    redistribution_status: review_required
+    publication_status: link_only
+    review_level: standard
+    tags:
+      - vehicle title
+      - car title
+      - Ohio BMV
+      - buy a car
+      - private sale
+      - Ohio car paperwork
+      - sell my car
+
+  - slug: ohio-bmv-beneficiary-designation
+    title: Ohio BMV Affidavit for Designation of Beneficiary for Certificate of Title
+    form_number: BMV 3811
+    agency: Ohio Bureau of Motor Vehicles
+    jurisdiction: Ohio
+    category: Motor vehicles
+    description: Allows the sole owner of a motor vehicle, watercraft, or outboard motor to designate a beneficiary to receive the title upon the owner's death.
+    plain_language_summary: If you are the sole owner of a vehicle in Ohio, this form lets you name someone who will automatically receive the vehicle title when you pass away. This can help avoid probate for your vehicle. The form must be filed with the county title office.
+    official_page_url: https://www.bmv.ohio.gov/doc-forms.aspx
+    official_download_url: https://publicsafety.ohio.gov/links/bmv3811.pdf
+    redistribution_status: review_required
+    publication_status: hidden
+    review_level: elevated
+    tags:
+      - beneficiary
+      - vehicle title
+      - estate planning
+      - transfer on death
+      - Ohio BMV
+      - probate

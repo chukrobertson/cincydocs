@@ -1,0 +1,93 @@
+forms:
+  - slug: irs-form-w9
+    title: Request for Taxpayer Identification Number and Certification
+    form_number: Form W-9
+    agency: Internal Revenue Service
+    jurisdiction: United States
+    category: Taxes
+    description: Used to provide a correct Taxpayer Identification Number (TIN) to the person who is required to file an information return with the IRS to report certain transactions.
+    plain_language_summary: This is the form you fill out when someone needs your Social Security Number or Employer ID Number for tax reporting — for example, when you start a new job, open a bank account, or do freelance work. You do not send this form to the IRS. You give it to the business or person who requested it.
+    official_page_url: https://www.irs.gov/forms-pubs/about-form-w-9
+    official_download_url: https://www.irs.gov/pub/irs-pdf/fw9.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - W-9
+      - tax ID
+      - SSN
+      - EIN
+      - taxpayer ID
+      - IRS forms
+      - freelance
+      - independent contractor
+      - proof of income
+
+  - slug: irs-form-w4
+    title: Employee's Withholding Certificate
+    form_number: Form W-4
+    agency: Internal Revenue Service
+    jurisdiction: United States
+    category: Taxes
+    description: Completed by employees to let their employer know how much federal income tax to withhold from their pay.
+    plain_language_summary: You fill out this form when you start a new job or when you want to change how much tax is taken out of your paycheck. Your employer uses it to calculate your tax withholding. The IRS website has a withholding estimator tool to help you fill it out.
+    official_page_url: https://www.irs.gov/forms-pubs/about-form-w-4
+    official_download_url: https://www.irs.gov/pub/irs-pdf/fw4.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - W-4
+      - tax withholding
+      - paycheck
+      - new job
+      - IRS forms
+      - employee forms
+      - tax paperwork
+
+  - slug: irs-form-ss4
+    title: Application for Employer Identification Number
+    form_number: Form SS-4
+    agency: Internal Revenue Service
+    jurisdiction: United States
+    category: Business
+    description: Used to apply for an Employer Identification Number (EIN) from the IRS for a business entity.
+    plain_language_summary: This form is used to get an EIN — a tax ID number for a business. You need an EIN if you are starting a business, hiring employees, opening a business bank account, or forming a partnership or corporation. You can also apply for an EIN online through the IRS website.
+    official_page_url: https://www.irs.gov/forms-pubs/about-form-ss-4
+    official_download_url: https://www.irs.gov/pub/irs-pdf/fss4.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - EIN
+      - employer ID
+      - business tax ID
+      - start a business
+      - IRS forms
+      - business paperwork
+    needs_source_verification: true
+
+  - slug: irs-form-1040
+    title: U.S. Individual Income Tax Return
+    form_number: Form 1040
+    agency: Internal Revenue Service
+    jurisdiction: United States
+    category: Taxes
+    description: The standard IRS form used by individuals to file their annual income tax return.
+    plain_language_summary: This is the main form used to file your federal income taxes each year. Most people use this form to report their income, claim deductions and credits, and calculate what they owe or what refund they will receive.
+    official_page_url: https://www.irs.gov/forms-pubs/about-form-1040
+    official_download_url: https://www.irs.gov/pub/irs-pdf/f1040.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - tax return
+      - income tax
+      - IRS
+      - file taxes
+      - tax forms
+      - "1040"

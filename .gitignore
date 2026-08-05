@@ -11,6 +11,11 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Data
+data/downloads/
+data/extracted_text/
+data/reports/
+
 # Editor
 .vscode/
 .idea/

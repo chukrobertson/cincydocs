@@ -1,0 +1,64 @@
+forms:
+  - slug: ohio-secretary-of-state-notary-application
+    title: Ohio Application for Notary Public Commission
+    form_number: ""
+    agency: Ohio Secretary of State
+    jurisdiction: Ohio
+    category: Notary
+    description: Resources and FAQ for becoming a notary public in Ohio, including requirements, application process, and background check information.
+    plain_language_summary: This is a resource page from the Ohio Secretary of State with frequently asked questions about becoming a notary public. It covers the application process, background check requirements, educational requirements, and how to renew your commission. Notaries in Ohio are commissioned for five-year terms.
+    official_page_url: https://www.ohiosos.gov/notary/become-a-notary-in-ohio/resources-and-frequently-asked-questions
+    redistribution_status: review_required
+    publication_status: hidden
+    review_level: standard
+    tags:
+      - become a notary
+      - notary public
+      - Ohio notary commission
+      - notary application
+      - notary training
+    needs_source_verification: true
+
+  - slug: hamilton-county-auditor-forms
+    title: Hamilton County Auditor Forms Directory
+    form_number: ""
+    agency: Hamilton County Auditor
+    jurisdiction: Hamilton County
+    category: Records requests
+    description: Directory of downloadable PDF forms from the Hamilton County Auditor's Office, including conveyance forms, tax exemption applications, dog licensing, and CAUV forms.
+    plain_language_summary: The Hamilton County Auditor's forms page includes downloadable forms for real estate transfers, tax exemptions, dog licensing, agricultural use valuation, name change affidavits, and other property-related filings. This is the central page for finding county-level property forms.
+    official_page_url: https://www.hamiltoncountyauditor.org/forms.asp
+    redistribution_status: review_required
+    publication_status: link_only
+    review_level: standard
+    tags:
+      - Hamilton County
+      - auditor forms
+      - real estate transfer
+      - conveyance fee
+      - property tax
+      - dog license
+      - CAUV
+      - homestead exemption
+
+  - slug: hamilton-county-vital-records
+    title: Hamilton County Vital Records Requests
+    form_number: ""
+    agency: Hamilton County Public Health
+    jurisdiction: Hamilton County
+    category: Records requests
+    description: Vital records services from Hamilton County Public Health, including birth and death certificate requests.
+    plain_language_summary: Hamilton County Public Health provides certified copies of birth and death certificates for events that occurred in Hamilton County, Ohio. Certified copies are often needed for identification, passports, school registration, estate settlement, and insurance claims. Fees apply and proof of identity is required.
+    official_page_url: https://hamiltoncountyhealth.org/birth-death-certificates/
+    redistribution_status: review_required
+    publication_status: link_only
+    review_level: standard
+    tags:
+      - birth certificate
+      - death certificate
+      - vital records
+      - Hamilton County
+      - certified copy
+      - identification documents
+      - proof of identity
+      - estate

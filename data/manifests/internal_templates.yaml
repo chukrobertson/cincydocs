@@ -1,0 +1,119 @@
+forms:
+  - slug: cds-client-intake
+    title: Client Intake Form
+    form_number: CDS-001
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: General administrative templates
+    description: Internal form used to collect contact information, service requests, and document details from new clients.
+    plain_language_summary: When you contact Cincinnati Document Services for help, we use this form to record your information, the services you need, and details about your documents. This is an internal form — it is not a government document.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - intake form
+      - client form
+
+  - slug: cds-print-scan-order
+    title: Print and Scan Service Order
+    form_number: CDS-002
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: General administrative templates
+    description: Service order form for print and scan jobs, detailing document types, quantities, and specifications.
+    plain_language_summary: We use this form to record the details of your print and scan order — what documents you need scanned, how many copies, color or black and white, and any special instructions. This is an internal service form.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - print order
+      - scan order
+      - service order
+
+  - slug: cds-notary-service-receipt
+    title: Notary Service Receipt
+    form_number: CDS-003
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: Notary
+    description: Receipt documenting notary services performed, including date, type of notarization, and document description.
+    plain_language_summary: After performing a notarization, we provide this receipt to document the service. It includes the date, type of notarization (acknowledgment, jurat, etc.), document type, and the notary's commission information. Keep this for your records.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - notary receipt
+      - notarization record
+      - notary public
+
+  - slug: cds-document-pickup-authorization
+    title: Document Pickup Authorization
+    form_number: CDS-004
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: General administrative templates
+    description: Authorization form allowing a designated person to pick up completed documents on behalf of a client.
+    plain_language_summary: If someone else needs to pick up your completed documents, use this form to give them permission. This protects your privacy and ensures documents are released only to authorized people.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - pickup authorization
+      - document release
+      - privacy
+
+  - slug: cds-consent-scan-email
+    title: Consent to Scan and Email Documents
+    form_number: CDS-005
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: General administrative templates
+    description: Consent form for clients authorizing CDS to scan and email documents, including acknowledgment of email security limitations.
+    plain_language_summary: Before we scan and email your documents, we ask you to sign this consent form. It explains that email is not completely secure and gives us permission to send your scanned documents electronically.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - email consent
+      - scan consent
+      - digital documents
+
+  - slug: cds-records-request-tracking
+    title: Records Request Tracking Sheet
+    form_number: CDS-006
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: Records requests
+    description: Internal tracking sheet used to log and track records requests submitted to government agencies on behalf of clients.
+    plain_language_summary: When we help you request records from government agencies (like birth certificates or property records), we use this tracking sheet to keep track of what was requested, when, and the status. This is an internal work tracking form.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - records request
+      - vital records
+      - tracking
+      - government records
+
+  - slug: cds-form-research-request
+    title: Form Research Request
+    form_number: CDS-007
+    agency: Cincinnati Document Services
+    jurisdiction: Cincinnati
+    category: General administrative templates
+    description: Form used to request research into which government forms a client may need for their situation.
+    plain_language_summary: If you are not sure which government forms you need for your situation, fill out this form. We will research commonly used forms for the type of transaction or process you are dealing with and provide you with a summary. This is a research service — not legal advice.
+    publication_status: internal_only
+    review_level: standard
+    redistribution_status: not_permitted
+    agency_type: internal
+    tags:
+      - form research
+      - which form do I need
+      - document help

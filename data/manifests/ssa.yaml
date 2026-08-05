@@ -1,0 +1,89 @@
+forms:
+  - slug: ssa-form-ss-5
+    title: Application for a Social Security Card
+    form_number: Form SS-5
+    agency: Social Security Administration
+    jurisdiction: United States
+    category: Benefits
+    description: Used to apply for an original Social Security card, request a replacement, or update information on your Social Security record. All forms are free.
+    plain_language_summary: Use this form to get a new Social Security card, replace a lost card, or update your name on your Social Security record. You will need to provide documents proving your identity, age, and citizenship or immigration status. The Social Security Administration does not charge for a Social Security card. Available in English and Spanish.
+    official_page_url: https://www.ssa.gov/forms/ss-5.pdf
+    official_download_url: https://www.ssa.gov/forms/ss-5.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - social security card
+      - replacement SS card
+      - name change
+      - SSA forms
+      - SSN
+      - social security number
+      - identification
+
+  - slug: ssa-form-ssa-1
+    title: Application for Retirement Insurance Benefits
+    form_number: Form SSA-1-BK
+    agency: Social Security Administration
+    jurisdiction: United States
+    category: Benefits
+    description: Application for Social Security retirement insurance benefits. Available in English and Spanish.
+    plain_language_summary: This is the form used to apply for Social Security retirement benefits. The SSA also allows you to apply online through their website, but this paper form is available for those who need it or prefer it. You can apply up to four months before you want your benefits to start.
+    official_page_url: https://www.ssa.gov/forms/ssa-1.html
+    official_download_url: https://www.ssa.gov/forms/ssa-1-bk.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - retirement
+      - social security
+      - benefits
+      - SSA
+      - retirement application
+
+  - slug: ssa-form-ssa-16
+    title: Application for Disability Insurance Benefits
+    form_number: Form SSA-16-BK
+    agency: Social Security Administration
+    jurisdiction: United States
+    category: Benefits
+    description: Application for Social Security Disability Insurance (SSDI) benefits. Available in English and Spanish.
+    plain_language_summary: If you cannot work because of a medical condition expected to last at least one year or result in death, you may use this form to apply for SSDI benefits. Most people apply online or by phone, but the paper form is available if needed.
+    official_page_url: https://www.ssa.gov/forms/ssa-16.html
+    official_download_url: https://www.ssa.gov/forms/ssa-16-bk.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - SSDI
+      - disability
+      - disability application
+      - SSA
+      - unable to work
+      - medical condition
+
+  - slug: ssa-form-ssa-827
+    title: Authorization to Disclose Information to the Social Security Administration
+    form_number: Form SSA-827
+    agency: Social Security Administration
+    jurisdiction: United States
+    category: Benefits
+    description: Authorizes medical sources, schools, and other parties to disclose information to the SSA for claims processing.
+    plain_language_summary: This form lets the SSA request your medical records and other personal information when you apply for benefits like Social Security Disability Insurance or Supplemental Security Income. By signing it, you give healthcare providers and other sources permission to share your information with the SSA. Includes instructions in English and Spanish.
+    official_page_url: https://www.ssa.gov/forms/ssa-827.pdf
+    official_download_url: https://www.ssa.gov/forms/ssa-827.pdf
+    redistribution_status: permitted
+    publication_status: hidden
+    review_level: elevated
+    language: en
+    tags:
+      - medical records
+      - SSDI
+      - disability
+      - release form
+      - SSA forms
+      - benefits application
+      - authorization
