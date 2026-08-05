@@ -10,7 +10,7 @@ forms:
     official_page_url: https://www.ssa.gov/forms/ss-5.pdf
     official_download_url: https://www.ssa.gov/forms/ss-5.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:
@@ -33,7 +33,7 @@ forms:
     official_page_url: https://www.ssa.gov/forms/ssa-1.html
     official_download_url: https://www.ssa.gov/forms/ssa-1-bk.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:
@@ -54,7 +54,7 @@ forms:
     official_page_url: https://www.ssa.gov/forms/ssa-16.html
     official_download_url: https://www.ssa.gov/forms/ssa-16-bk.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:
@@ -76,7 +76,7 @@ forms:
     official_page_url: https://www.ssa.gov/forms/ssa-827.pdf
     official_download_url: https://www.ssa.gov/forms/ssa-827.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:

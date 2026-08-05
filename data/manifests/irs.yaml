@@ -10,7 +10,7 @@ forms:
     official_page_url: https://www.irs.gov/forms-pubs/about-form-w-9
     official_download_url: https://www.irs.gov/pub/irs-pdf/fw9.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:
@@ -35,7 +35,7 @@ forms:
     official_page_url: https://www.irs.gov/forms-pubs/about-form-w-4
     official_download_url: https://www.irs.gov/pub/irs-pdf/fw4.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:
@@ -58,7 +58,7 @@ forms:
     official_page_url: https://www.irs.gov/forms-pubs/about-form-ss-4
     official_download_url: https://www.irs.gov/pub/irs-pdf/fss4.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:
@@ -81,7 +81,7 @@ forms:
     official_page_url: https://www.irs.gov/forms-pubs/about-form-1040
     official_download_url: https://www.irs.gov/pub/irs-pdf/f1040.pdf
     redistribution_status: permitted
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     language: en
     tags:

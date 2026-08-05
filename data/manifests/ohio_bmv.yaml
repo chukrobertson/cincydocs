@@ -79,7 +79,7 @@ forms:
     official_page_url: https://www.bmv.ohio.gov/doc-forms.aspx
     official_download_url: https://publicsafety.ohio.gov/links/bmv3811.pdf
     redistribution_status: review_required
-    publication_status: hidden
+    publication_status: link_only
     review_level: elevated
     tags:
       - beneficiary

@@ -9,7 +9,7 @@ forms:
     plain_language_summary: This is a resource page from the Ohio Secretary of State with frequently asked questions about becoming a notary public. It covers the application process, background check requirements, educational requirements, and how to renew your commission. Notaries in Ohio are commissioned for five-year terms.
     official_page_url: https://www.ohiosos.gov/notary/become-a-notary-in-ohio/resources-and-frequently-asked-questions
     redistribution_status: review_required
-    publication_status: hidden
+    publication_status: link_only
     review_level: standard
     tags:
       - become a notary
