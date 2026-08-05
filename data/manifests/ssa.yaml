@@ -10,7 +10,14 @@ forms:
     official_page_url: https://www.ssa.gov/forms/ss-5.pdf
     official_download_url: https://www.ssa.gov/forms/ss-5.pdf
     redistribution_status: permitted
-    publication_status: link_only
+    publication_status: locally_hosted
+    locally_stored: true
+    local_file_path: data/downloads/federal/ssa-form-ss-5.pdf
+    page_count: 5
+    file_size: 153041
+    sha256: 281da43ef49cb74103515b9a6a27c70fc429070dbf93f6758dc425d47fb8620b
+    fillable: yes
+    last_verified_at: 2026-08-05
     review_level: elevated
     language: en
     tags:

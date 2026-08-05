@@ -178,7 +178,11 @@
         {% set has_dl = form.official_download_url and form.official_download_url|length > 0 %}
 
         <div class="action-row">
-          {% if has_dl %}
+          {% if form.publication_status.value == 'locally_hosted' and form.local_filename %}
+            <a href="{{ form.local_filename }}" class="btn btn-gold btn-lg" style="padding:0.65rem 1.5rem; font-size:0.85rem;">
+              &#x1F4E5; DOWNLOAD FORM
+            </a>
+          {% elif has_dl %}
             <a href="{{ form.official_download_url }}" class="btn btn-gold btn-lg" target="_blank" rel="noopener" style="padding:0.65rem 1.5rem; font-size:0.85rem;">
               &#x1F4E5; DOWNLOAD FORM
             </a>

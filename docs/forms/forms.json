@@ -19,9 +19,9 @@
       "independent contractor",
       "proof of income"
     ],
-    "last_verified_at": null,
-    "publication_status": "link_only",
-    "locally_stored": false
+    "last_verified_at": "2026-08-05",
+    "publication_status": "locally_hosted",
+    "locally_stored": true
   },
   {
     "slug": "irs-form-w4",
@@ -41,9 +41,9 @@
       "employee forms",
       "tax paperwork"
     ],
-    "last_verified_at": null,
-    "publication_status": "link_only",
-    "locally_stored": false
+    "last_verified_at": "2026-08-05",
+    "publication_status": "locally_hosted",
+    "locally_stored": true
   },
   {
     "slug": "irs-form-ss4",
@@ -62,9 +62,9 @@
       "IRS forms",
       "business paperwork"
     ],
-    "last_verified_at": null,
-    "publication_status": "link_only",
-    "locally_stored": false
+    "last_verified_at": "2026-08-05",
+    "publication_status": "locally_hosted",
+    "locally_stored": true
   },
   {
     "slug": "irs-form-1040",
@@ -261,9 +261,9 @@
       "social security number",
       "identification"
     ],
-    "last_verified_at": null,
-    "publication_status": "link_only",
-    "locally_stored": false
+    "last_verified_at": "2026-08-05",
+    "publication_status": "locally_hosted",
+    "locally_stored": true
   },
   {
     "slug": "ssa-form-ssa-1",

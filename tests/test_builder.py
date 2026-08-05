@@ -8,7 +8,7 @@ from forms_library.models import Form, Manifest
 
 class TestBuilder:
     def test_collect_forms_deduplication(self):
-        builder = Builder(None, None)  # type: ignore[arg-type]
+        builder = Builder(None, None, None)  # type: ignore[arg-type]
         manifest1 = Manifest(forms=[
             Form(slug="form-a", title="Form A"),
             Form(slug="form-b", title="Form B"),
@@ -30,7 +30,7 @@ class TestBuilder:
         )
         (templates_dir / "forms_browse.html").write_text("{{ forms | length }}")
 
-        builder = Builder(output_dir, templates_dir)
+        builder = Builder(output_dir, templates_dir, tmp_path)
         manifest = Manifest(forms=[
             Form(
                 slug="test-form",
@@ -52,7 +52,7 @@ class TestBuilder:
         (templates_dir / "form_detail.html").write_text("{{ form.title }}")
         (templates_dir / "forms_browse.html").write_text("{{ forms | length }}")
 
-        builder = Builder(output_dir, templates_dir)
+        builder = Builder(output_dir, templates_dir, tmp_path)
         manifest = Manifest(forms=[
             Form(slug="form-a", title="Form A", tags=["tag1"], publication_status="link_only"),
             Form(slug="form-b", title="Form B", tags=["tag2"], publication_status="link_only"),
@@ -71,7 +71,7 @@ class TestBuilder:
         (templates_dir / "form_detail.html").write_text("{{ form.title }}")
         (templates_dir / "forms_browse.html").write_text("browse")
 
-        builder = Builder(output_dir, templates_dir)
+        builder = Builder(output_dir, templates_dir, tmp_path)
         manifest = Manifest(forms=[
             Form(slug="irs-form-w9", title="W-9 Form", publication_status="link_only"),
         ])

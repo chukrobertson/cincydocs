@@ -255,7 +255,7 @@ def build(
         console.print("[yellow]No forms found in manifests[/yellow]")
         return
 
-    builder = Builder(output_dir=output_dir, templates_dir=TEMPLATES_DIR)
+    builder = Builder(output_dir=output_dir, templates_dir=TEMPLATES_DIR, data_dir=DATA_DIR)
     builder.build(manifests)
 
     console.print(f"[green]Built {forms_count} form(s) to {output_dir / 'forms'}[/green]")

@@ -105,7 +105,7 @@ def download_file(
         client = httpx.Client(
             follow_redirects=True,
             timeout=TIMEOUT,
-            headers={"User-Agent": "CincyDocsForms/1.0 (+https://cincydocs.com)"},
+            headers={"User-Agent": "Mozilla/5.0 (compatible; CincyDocsForms/1.0)"},
         )
         close_client = True
 

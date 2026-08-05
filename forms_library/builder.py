@@ -38,12 +38,15 @@ def _form_to_dict(form: Form) -> dict:
             citation["verified_at"] = v.date().isoformat()
         elif isinstance(v, date):
             citation["verified_at"] = v.isoformat()
+    if data.get("local_file_path"):
+        data["local_filename"] = Path(data["local_file_path"]).name
     return data
 
 
 class Builder:
-    def __init__(self, output_dir: Path, templates_dir: Path) -> None:
+    def __init__(self, output_dir: Path, templates_dir: Path, data_dir: Path) -> None:
         self.output_dir = output_dir
+        self.data_dir = data_dir
         self.env = Environment(
             loader=FileSystemLoader(str(templates_dir)),
             autoescape=select_autoescape(["html", "xml"]),
@@ -64,6 +67,7 @@ class Builder:
 
         self._clean_non_public_dirs(forms, public_forms, forms_dir)
         self._build_form_pages(public_forms, forms_dir)
+        self._copy_local_files(public_forms, forms_dir)
         self._build_search_index(public_forms, forms_dir)
         self._build_browse_page(public_forms, forms_dir)
 
@@ -93,6 +97,20 @@ class Builder:
             slug_dir.mkdir(parents=True, exist_ok=True)
             html = template.render(form=_form_to_dict(form))
             (slug_dir / "index.html").write_text(html)
+
+    def _copy_local_files(self, forms: list[Form], forms_dir: Path) -> None:
+        import shutil
+
+        for form in forms:
+            if not form.locally_stored or not form.local_file_path:
+                continue
+            src = self.data_dir.parent / form.local_file_path
+            if not src.exists():
+                continue
+            slug_dir = forms_dir / form.slug
+            slug_dir.mkdir(parents=True, exist_ok=True)
+            dest = slug_dir / src.name
+            shutil.copy2(src, dest)
 
     def _build_search_index(self, forms: list[Form], forms_dir: Path) -> None:
         index = []
