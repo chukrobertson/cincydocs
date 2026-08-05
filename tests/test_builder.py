@@ -32,7 +32,12 @@ class TestBuilder:
 
         builder = Builder(output_dir, templates_dir)
         manifest = Manifest(forms=[
-            Form(slug="test-form", title="Test Form", agency="Agency"),
+            Form(
+                slug="test-form",
+                title="Test Form",
+                agency="Agency",
+                publication_status="link_only",
+            ),
         ])
         builder.build([manifest])
 
@@ -49,8 +54,8 @@ class TestBuilder:
 
         builder = Builder(output_dir, templates_dir)
         manifest = Manifest(forms=[
-            Form(slug="form-a", title="Form A", tags=["tag1"]),
-            Form(slug="form-b", title="Form B", tags=["tag2"]),
+            Form(slug="form-a", title="Form A", tags=["tag1"], publication_status="link_only"),
+            Form(slug="form-b", title="Form B", tags=["tag2"], publication_status="link_only"),
         ])
         builder.build([manifest])
 
@@ -68,7 +73,7 @@ class TestBuilder:
 
         builder = Builder(output_dir, templates_dir)
         manifest = Manifest(forms=[
-            Form(slug="irs-form-w9", title="W-9 Form"),
+            Form(slug="irs-form-w9", title="W-9 Form", publication_status="link_only"),
         ])
         builder.build([manifest])
 

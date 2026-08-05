@@ -57,12 +57,24 @@ class Builder:
         if not forms:
             return
 
+        public_forms = [f for f in forms if f.publication_status.value not in ("hidden", "internal_only")]
+
         forms_dir = self.output_dir / "forms"
         forms_dir.mkdir(parents=True, exist_ok=True)
 
-        self._build_form_pages(forms, forms_dir)
-        self._build_search_index(forms, forms_dir)
-        self._build_browse_page(forms, forms_dir)
+        self._clean_non_public_dirs(forms, public_forms, forms_dir)
+        self._build_form_pages(public_forms, forms_dir)
+        self._build_search_index(public_forms, forms_dir)
+        self._build_browse_page(public_forms, forms_dir)
+
+    def _clean_non_public_dirs(
+        self, all_forms: list[Form], public_forms: list[Form], forms_dir: Path
+    ) -> None:
+        public_slugs = {f.slug for f in public_forms}
+        for child in forms_dir.iterdir():
+            if child.is_dir() and child.name not in public_slugs:
+                import shutil
+                shutil.rmtree(child)
 
     def _collect_forms(self, manifests: list[Manifest]) -> list[Form]:
         seen: set[str] = set()
