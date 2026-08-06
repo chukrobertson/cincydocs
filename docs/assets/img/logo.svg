@@ -1,7 +1,7 @@
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <path id="arc-top" d="M 38,100 A 62,62 0 0,0 162,100" />
-    <path id="arc-bottom" d="M 162,100 A 62,62 0 0,1 38,100" />
+    <path id="arc-top" d="M 40,100 A 60,60 0 0,0 160,100" />
+    <path id="arc-bottom" d="M 160,100 A 60,60 0 0,1 40,100" />
 
     <linearGradient id="seal-grad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#f3e8d6"/>
@@ -19,7 +19,7 @@
   <circle cx="100" cy="100" r="95" fill="url(#maroon-grad)"/>
   <circle cx="100" cy="100" r="90" fill="url(#seal-grad)"/>
 
-  <!-- Gold inner ring -->
+  <!-- Gold inner rings -->
   <circle cx="100" cy="100" r="90" fill="none" stroke="#c49a2a" stroke-width="2.5"/>
   <circle cx="100" cy="100" r="86" fill="none" stroke="#c49a2a" stroke-width="1"/>
   <circle cx="100" cy="100" r="83" fill="none" stroke="#c49a2a" stroke-width="0.5"/>
@@ -28,49 +28,86 @@
   <text font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="13.5" fill="#4a0011" letter-spacing="3.5">
     <textPath href="#arc-top" startOffset="50%" text-anchor="middle">CINCINNATI</textPath>
   </text>
-  <text font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="11" fill="#4a0011" letter-spacing="4">
+  <text font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="11" fill="#4a0011" letter-spacing="4.5">
     <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">DOCUMENT SERVICES</textPath>
   </text>
 
   <!-- Separator dots -->
-  <circle cx="35" cy="63" r="2" fill="#c49a2a"/>
-  <circle cx="165" cy="63" r="2" fill="#c49a2a"/>
-  <circle cx="35" cy="137" r="2" fill="#c49a2a"/>
-  <circle cx="165" cy="137" r="2" fill="#c49a2a"/>
+  <circle cx="36" cy="62" r="2" fill="#c49a2a"/>
+  <circle cx="164" cy="62" r="2" fill="#c49a2a"/>
+  <circle cx="36" cy="138" r="2" fill="#c49a2a"/>
+  <circle cx="164" cy="138" r="2" fill="#c49a2a"/>
 
-  <!-- Crown (Queen City) - centered above bridge -->
-  <g transform="translate(100, 58)">
-    <path d="M-18,12 L-14,-4 L-8,4 L0,-10 L8,4 L14,-4 L18,12 Z"
-          fill="#c49a2a" stroke="#9e7820" stroke-width="0.8"/>
-    <rect x="-22" y="12" width="44" height="5" rx="1" fill="#c49a2a" stroke="#9e7820" stroke-width="0.8"/>
-    <circle cx="-14" cy="-4" r="2" fill="#f3e8d6" opacity="0.8"/>
-    <circle cx="0" cy="-10" r="2.5" fill="#f3e8d6" opacity="0.8"/>
-    <circle cx="14" cy="-4" r="2" fill="#f3e8d6" opacity="0.8"/>
+  <!-- === LEFT: Messy paper stack === -->
+  <g transform="translate(62, 118)">
+    <!-- Uneven, tilted papers -->
+    <rect x="-18" y="-22" width="24" height="32" rx="1" fill="#d4c4a4" stroke="#b8a88a" stroke-width="0.6"
+          transform="rotate(-15, -6, -6)" opacity="0.9"/>
+    <rect x="-14" y="-20" width="24" height="32" rx="1" fill="#e0d0b0" stroke="#b8a88a" stroke-width="0.6"
+          transform="rotate(8, -2, -4)" opacity="0.85"/>
+    <rect x="-16" y="-18" width="24" height="32" rx="1" fill="#ecdcc0" stroke="#b8a88a" stroke-width="0.6"
+          transform="rotate(-5, -4, -2)" opacity="0.9"/>
+    <rect x="-15" y="-16" width="24" height="32" rx="1" fill="#f3e8d6" stroke="#b8a88a" stroke-width="0.6"
+          transform="rotate(3, -3, 0)" opacity="0.95"/>
+    <!-- Scattered lines on top paper -->
+    <line x1="-10" y1="-12" x2="5" y2="-12" stroke="#c4b490" stroke-width="0.4"
+          transform="rotate(3, -3, 0)"/>
+    <line x1="-8" y1="-9" x2="3" y2="-9" stroke="#c4b490" stroke-width="0.4"
+          transform="rotate(3, -3, 0)"/>
+    <line x1="-12" y1="-6" x2="2" y2="-6" stroke="#c4b490" stroke-width="0.4"
+          transform="rotate(3, -3, 0)"/>
+    <!-- Stray corner peeking out -->
+    <path d="M-16,-18 L-22,-16 L-22,-20 Z" fill="#d4c4a4" stroke="#b8a88a" stroke-width="0.4"/>
   </g>
 
-  <!-- Roebling Bridge silhouette -->
-  <g transform="translate(100, 125)">
+  <!-- === RIGHT: Clean organized stack === -->
+  <g transform="translate(138, 118)">
+    <!-- Perfectly aligned papers -->
+    <rect x="-16" y="2" width="28" height="36" rx="1.5" fill="#d4c4a4" stroke="#b8a88a" stroke-width="0.6"/>
+    <rect x="-16" y="-2" width="28" height="36" rx="1.5" fill="#e0d0b0" stroke="#b8a88a" stroke-width="0.6"/>
+    <rect x="-16" y="-6" width="28" height="36" rx="1.5" fill="#ecdcc0" stroke="#b8a88a" stroke-width="0.6"/>
+    <rect x="-16" y="-10" width="28" height="36" rx="1.5" fill="#f3e8d6" stroke="#b8a88a" stroke-width="0.6"/>
+    <!-- Neat checkmark on top paper -->
+    <path d="M-8,-7 L-4,-3 L4,-9" fill="none" stroke="#4a0011" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Aligned text lines -->
+    <line x1="-10" y1="-3" x2="6" y2="-3" stroke="#c4b490" stroke-width="0.4"/>
+    <line x1="-10" y1="0" x2="4" y2="0" stroke="#c4b490" stroke-width="0.4"/>
+  </g>
+
+  <!-- === Roebling Bridge connecting the stacks === -->
+  <g transform="translate(100, 90)">
     <!-- Left tower -->
-    <rect x="-30" y="-45" width="10" height="40" fill="#4a0011" rx="1"/>
-    <rect x="-26" y="-48" width="2" height="50" fill="#4a0011"/>
-    <!-- Left tower arch -->
-    <path d="M-30,-10 Q-25,-18 -20,-10" fill="none" stroke="#4a0011" stroke-width="2"/>
-    <path d="M-20,-10 L-20,2" stroke="#4a0011" stroke-width="2"/>
+    <rect x="-28" y="-28" width="8" height="32" fill="#4a0011" rx="1"/>
+    <rect x="-25" y="-30" width="2" height="38" fill="#4a0011"/>
 
     <!-- Right tower -->
-    <rect x="20" y="-45" width="10" height="40" fill="#4a0011" rx="1"/>
-    <rect x="24" y="-48" width="2" height="50" fill="#4a0011"/>
-    <!-- Right tower arch -->
-    <path d="M20,-10 Q25,-18 30,-10" fill="none" stroke="#4a0011" stroke-width="2"/>
-    <path d="M30,-10 L30,2" stroke="#4a0011" stroke-width="2"/>
+    <rect x="20" y="-28" width="8" height="32" fill="#4a0011" rx="1"/>
+    <rect x="23" y="-30" width="2" height="38" fill="#4a0011"/>
 
     <!-- Suspension cables -->
-    <path d="M-24,-45 Q-12,-55 0,-52 Q12,-55 24,-45"
-          fill="none" stroke="#4a0011" stroke-width="1.5" opacity="0.8"/>
-    <path d="M-24,-45 Q-12,-55 0,-52 Q12,-55 24,-45"
-          fill="none" stroke="#4a0011" stroke-width="1.5" opacity="0.8"/>
+    <path d="M-23,-28 Q-8,-42 0,-38 Q8,-42 23,-28"
+          fill="none" stroke="#4a0011" stroke-width="1.2" opacity="0.85"/>
+    <path d="M-23,-28 Q-8,-42 0,-38 Q8,-42 23,-28"
+          fill="none" stroke="#4a0011" stroke-width="1.2" opacity="0.85"/>
 
-    <!-- Deck -->
-    <rect x="-38" y="-5" width="76" height="5" fill="#4a0011" rx="1"/>
+    <!-- Vertical suspender cables -->
+    <line x1="-16" y1="-28" x2="-16" y2="-34" stroke="#4a0011" stroke-width="0.5" opacity="0.5"/>
+    <line x1="-8" y1="-28" x2="-8" y2="-38" stroke="#4a0011" stroke-width="0.5" opacity="0.5"/>
+    <line x1="0" y1="-28" x2="0" y2="-38" stroke="#4a0011" stroke-width="0.5" opacity="0.5"/>
+    <line x1="8" y1="-28" x2="8" y2="-38" stroke="#4a0011" stroke-width="0.5" opacity="0.5"/>
+    <line x1="16" y1="-28" x2="16" y2="-34" stroke="#4a0011" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- Bridge deck -->
+    <rect x="-35" y="4" width="70" height="3" fill="#4a0011" rx="0.5" opacity="0.9"/>
+  </g>
+
+  <!-- === Crown (Queen City) centered above the bridge === -->
+  <g transform="translate(100, 50)">
+    <path d="M-20,14 L-15,-5 L-9,4 L0,-12 L9,4 L15,-5 L20,14 Z"
+          fill="#c49a2a" stroke="#9e7820" stroke-width="0.8"/>
+    <rect x="-24" y="14" width="48" height="5" rx="1" fill="#c49a2a" stroke="#9e7820" stroke-width="0.8"/>
+    <circle cx="-15" cy="-5" r="2.2" fill="#f3e8d6" opacity="0.8"/>
+    <circle cx="0" cy="-12" r="2.8" fill="#f3e8d6" opacity="0.9"/>
+    <circle cx="15" cy="-5" r="2.2" fill="#f3e8d6" opacity="0.8"/>
   </g>
 </svg>
