@@ -1,0 +1,13 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="15" fill="#660c1a"/>
+  <circle cx="16" cy="16" r="13" fill="none" stroke="#c49a2a" stroke-width="1.5"/>
+  <!-- Crown -->
+  <g transform="translate(16, 11)">
+    <path d="M-8,8 L-7,-3 L-4,2 L0,-6 L4,2 L7,-3 L8,8 Z"
+          fill="#c49a2a"/>
+    <rect x="-10" y="8" width="20" height="3" rx="0.5" fill="#c49a2a"/>
+    <circle cx="-7" cy="-3" r="1" fill="#f3e8d6" opacity="0.8"/>
+    <circle cx="0" cy="-6" r="1.2" fill="#f3e8d6" opacity="0.8"/>
+    <circle cx="7" cy="-3" r="1" fill="#f3e8d6" opacity="0.8"/>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="arc-top" d="M 38,100 A 62,62 0 0,0 162,100" />
+    <path id="arc-bottom" d="M 162,100 A 62,62 0 0,1 38,100" />
+
+    <linearGradient id="seal-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3e8d6"/>
+      <stop offset="60%" stop-color="#e6d7bd"/>
+      <stop offset="100%" stop-color="#d4c4a4"/>
+    </linearGradient>
+
+    <linearGradient id="maroon-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a0f1f"/>
+      <stop offset="100%" stop-color="#4a0011"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="95" fill="url(#maroon-grad)"/>
+  <circle cx="100" cy="100" r="90" fill="url(#seal-grad)"/>
+
+  <!-- Gold inner ring -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#c49a2a" stroke-width="2.5"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#c49a2a" stroke-width="1"/>
+  <circle cx="100" cy="100" r="83" fill="none" stroke="#c49a2a" stroke-width="0.5"/>
+
+  <!-- Arced text -->
+  <text font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="13.5" fill="#4a0011" letter-spacing="3.5">
+    <textPath href="#arc-top" startOffset="50%" text-anchor="middle">CINCINNATI</textPath>
+  </text>
+  <text font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="11" fill="#4a0011" letter-spacing="4">
+    <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">DOCUMENT SERVICES</textPath>
+  </text>
+
+  <!-- Separator dots -->
+  <circle cx="35" cy="63" r="2" fill="#c49a2a"/>
+  <circle cx="165" cy="63" r="2" fill="#c49a2a"/>
+  <circle cx="35" cy="137" r="2" fill="#c49a2a"/>
+  <circle cx="165" cy="137" r="2" fill="#c49a2a"/>
+
+  <!-- Crown (Queen City) - centered above bridge -->
+  <g transform="translate(100, 58)">
+    <path d="M-18,12 L-14,-4 L-8,4 L0,-10 L8,4 L14,-4 L18,12 Z"
+          fill="#c49a2a" stroke="#9e7820" stroke-width="0.8"/>
+    <rect x="-22" y="12" width="44" height="5" rx="1" fill="#c49a2a" stroke="#9e7820" stroke-width="0.8"/>
+    <circle cx="-14" cy="-4" r="2" fill="#f3e8d6" opacity="0.8"/>
+    <circle cx="0" cy="-10" r="2.5" fill="#f3e8d6" opacity="0.8"/>
+    <circle cx="14" cy="-4" r="2" fill="#f3e8d6" opacity="0.8"/>
+  </g>
+
+  <!-- Roebling Bridge silhouette -->
+  <g transform="translate(100, 125)">
+    <!-- Left tower -->
+    <rect x="-30" y="-45" width="10" height="40" fill="#4a0011" rx="1"/>
+    <rect x="-26" y="-48" width="2" height="50" fill="#4a0011"/>
+    <!-- Left tower arch -->
+    <path d="M-30,-10 Q-25,-18 -20,-10" fill="none" stroke="#4a0011" stroke-width="2"/>
+    <path d="M-20,-10 L-20,2" stroke="#4a0011" stroke-width="2"/>
+
+    <!-- Right tower -->
+    <rect x="20" y="-45" width="10" height="40" fill="#4a0011" rx="1"/>
+    <rect x="24" y="-48" width="2" height="50" fill="#4a0011"/>
+    <!-- Right tower arch -->
+    <path d="M20,-10 Q25,-18 30,-10" fill="none" stroke="#4a0011" stroke-width="2"/>
+    <path d="M30,-10 L30,2" stroke="#4a0011" stroke-width="2"/>
+
+    <!-- Suspension cables -->
+    <path d="M-24,-45 Q-12,-55 0,-52 Q12,-55 24,-45"
+          fill="none" stroke="#4a0011" stroke-width="1.5" opacity="0.8"/>
+    <path d="M-24,-45 Q-12,-55 0,-52 Q12,-55 24,-45"
+          fill="none" stroke="#4a0011" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- Deck -->
+    <rect x="-38" y="-5" width="76" height="5" fill="#4a0011" rx="1"/>
+  </g>
+</svg>
