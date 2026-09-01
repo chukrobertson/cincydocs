@@ -163,13 +163,14 @@ header .container {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  padding: 0.3rem;
+  background-color: var(--parchment);
+  border-radius: 3px;
 }
 
 .logo-img {
-  height: 72px;
+  height: 82px;
   width: auto;
-  transform: scale(1.7);
-  transform-origin: left center;
 }
 
 /* ---- Hero ---- */
@@ -187,7 +188,7 @@ header .container {
 .document-mark {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .document-icon {
@@ -197,32 +198,32 @@ header .container {
 }
 
 .document-icon-lg {
-  width: 80px;
-  height: 100px;
-}
-
-.document-icon-sm {
   width: 48px;
   height: 60px;
 }
 
+.document-icon-sm {
+  width: 32px;
+  height: 40px;
+}
+
 .document-paper {
-  fill: rgba(243, 232, 214, 0.08);
-  stroke: var(--gold);
+  fill: #f3e8d6;
+  stroke: #c49a2a;
   stroke-width: 2;
   stroke-linejoin: round;
 }
 
 .document-fold {
   fill: none;
-  stroke: var(--gold);
+  stroke: #c49a2a;
   stroke-width: 2;
   stroke-linejoin: round;
 }
 
 .document-lines {
   fill: none;
-  stroke: var(--parchment-dk);
+  stroke: #660c1a;
   stroke-width: 2;
   stroke-linecap: round;
 }
@@ -556,7 +557,7 @@ footer p {
   }
 
   .logo-img {
-    height: 64px;
+    height: 70px;
   }
 
   header .btn-group {
