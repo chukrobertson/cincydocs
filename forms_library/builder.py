@@ -6,6 +6,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from forms_library.clock import current_datetime
 from forms_library.models import Form, Manifest, PublicationStatus
 
 DISCLAIMER = (
@@ -53,14 +54,16 @@ class Builder:
         )
         self.env.globals["disclaimer"] = DISCLAIMER
         self.env.globals["pub_status"] = PublicationStatus
-        self.env.globals["now"] = datetime.now()
+        self.env.globals["now"] = current_datetime()
 
     def build(self, manifests: list[Manifest]) -> None:
         forms = self._collect_forms(manifests)
         if not forms:
             return
 
-        public_forms = [f for f in forms if f.publication_status.value not in ("hidden", "internal_only")]
+        public_forms = [
+            f for f in forms if f.publication_status.value not in ("hidden", "internal_only")
+        ]
 
         forms_dir = self.output_dir / "forms"
         forms_dir.mkdir(parents=True, exist_ok=True)

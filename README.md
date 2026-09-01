@@ -57,17 +57,18 @@ Forms linked to official sources:
 ### Quick Start
 
 ```bash
-# Install dependencies (Python 3.12+)
-pip install --break-system-packages pydantic pyyaml httpx jinja2 typer rich pymupdf
+# Create an isolated environment (Python 3.12+; do not copy .venv between machines)
+python3 -m venv .venv
+.venv/bin/python -m pip install -e ".[dev,pdf]"
 
 # Validate all manifest files
-python3 -m forms_library validate
+.venv/bin/python -m forms_library validate
 
 # Build the static public site
-python3 -m forms_library build
+.venv/bin/python -m forms_library build
 
 # Run tests
-python3 -m pytest tests/ -v
+.venv/bin/python -m pytest tests/ -v
 ```
 
 ### CLI Commands
@@ -79,7 +80,7 @@ python3 -m pytest tests/ -v
 | `fetch <slug>` | Download a form PDF from its official URL |
 | `register <slug> <file>` | Register a manually downloaded PDF |
 | `build` | Generate static HTML pages into `docs/forms/` |
-| `verify --all` | Check all form URLs for broken links (HEAD with GET fallback) |
+| `verify --all` | Check all form URLs for broken links (HEAD with GET fallback); saves a Cincinnati-time run timestamp |
 | `report` | Generate a maintenance report (broken links, stale verifications) |
 | `list-forms` | List forms, filterable by status, category, or jurisdiction |
 

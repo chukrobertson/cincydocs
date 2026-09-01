@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-from datetime import date
 from pathlib import Path
 
 import typer
@@ -9,6 +8,7 @@ from rich.console import Console
 from rich.table import Table
 
 from forms_library.builder import Builder
+from forms_library.clock import CINCINNATI_TIMEZONE, current_datetime
 from forms_library.downloader import DownloadError, download_file
 from forms_library.manifest import ManifestError, load_all_manifests, load_manifest
 from forms_library.models import (
@@ -323,9 +323,15 @@ def verify(
                     "redirected": redirected,
                 })
 
+    generated_at = current_datetime()
+    report_data = {
+        "generated_at": generated_at.isoformat(),
+        "timezone": CINCINNATI_TIMEZONE.key,
+        "results": results,
+    }
     report_path = DATA_DIR / "reports" / "verify_report.json"
     report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(results, indent=2, default=str))
+    report_path.write_text(json.dumps(report_data, indent=2, default=str))
     console.print(f"\n[dim]Report saved: {report_path}[/dim]")
 
 
@@ -345,7 +351,8 @@ def report(
         raise typer.Exit(code=1)
 
     forms = [f for m in manifests for f in m.forms]
-    today = date.today()
+    generated_at = current_datetime()
+    today = generated_at.date()
     report_items: list[dict] = []
 
     for form in forms:
@@ -385,10 +392,16 @@ def report(
             })
 
     if format == "json":
-        console.print_json(json.dumps(report_items, indent=2, default=str))
+        report_data = {
+            "generated_at": generated_at.isoformat(),
+            "timezone": CINCINNATI_TIMEZONE.key,
+            "results": report_items,
+        }
+        console.print_json(json.dumps(report_data, indent=2, default=str))
         return
 
     console.print(f"# Forms Library Report — {today}\n")
+    console.print(f"Generated: {generated_at.isoformat()}\n")
     console.print(f"Total forms: {len(forms)}")
     console.print(f"Forms with issues: {len(report_items)}\n")
 
