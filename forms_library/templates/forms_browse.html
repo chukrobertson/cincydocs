@@ -47,7 +47,7 @@
       </div>
       <div class="btn-group">
         <a href="/forms/" class="btn btn-outline btn-header">FORMS</a>
-        <a href="tel:513 580 4150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
+        <a href="tel:+15135804150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
       </div>
     </div>
   </header>
@@ -62,13 +62,32 @@
       </div>
 
       <div class="search-wrap">
+        <label class="sr-only" for="search-input">Search forms</label>
         <input type="text" id="search-input" placeholder="Search by title, form number, agency, or topic... (e.g., &quot;sell my car&quot;, &quot;power of attorney&quot;)" autocomplete="off">
         <p class="search-hint">Try: sell my car &middot; power of attorney &middot; lost title &middot; birth certificate &middot; private sale &middot; notary</p>
       </div>
 
       <div class="list-section">
-        <div class="results-count" id="results-count"></div>
-        <div id="forms-grid"></div>
+        <div class="results-count" id="results-count" role="status" aria-live="polite">{{ forms|length }} forms found</div>
+        <div id="forms-grid">
+          {%- for form in forms %}
+          {%- set is_internal = form.agency and 'Cincinnati Document Services' in form.agency %}
+          <article class="form-card">
+            <h3><a href="/forms/{{ form.slug }}/">{{ form.title }}</a></h3>
+            <div class="form-card-meta">
+              {%- if form.agency and not is_internal %}<span class="card-badge">{{ form.agency }}</span>{% endif -%}
+              {%- if form.jurisdiction %}<span class="card-badge">{{ form.jurisdiction }}</span>{% endif -%}
+              {%- if form.category %}<span class="card-badge">{{ form.category }}</span>{% endif -%}
+              {%- if form.form_number %}<span class="card-badge">{{ form.form_number }}</span>{% endif -%}
+              {%- if is_internal %}<span class="card-badge card-badge-internal">INTERNAL</span>{% endif -%}
+            </div>
+            {%- set summary = form.plain_language_summary or form.description %}
+            {%- if summary %}<p>{{ summary[:240] }}{% if summary|length > 240 %}&hellip;{% endif %}</p>{% endif -%}
+            <div class="card-footer">{% if form.locally_stored %}Locally hosted{% else %}Link to official source{% endif %}{% if form.last_verified_at %} &middot; Verified {{ form.last_verified_at }}{% endif %}</div>
+          </article>
+          {%- endfor %}
+        </div>
+        <noscript><p class="no-results no-script-note">The complete form list is shown above. Enable JavaScript to search it.</p></noscript>
         <div id="no-results" class="no-results" style="display:none;">
           <p>No forms match your search. Try different keywords or <a href="mailto:hello@cincydocs.com" class="footer-link">contact us</a> for help finding a form.</p>
         </div>
@@ -82,7 +101,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
+      <p>&copy; Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
     </div>
   </footer>
 
@@ -104,7 +123,7 @@
           render(forms);
         })
         .catch(function() {
-          container.innerHTML = '<p class="no-results">Unable to load forms data.</p>';
+          countEl.textContent = 'Published forms are listed below. Search is unavailable right now.';
         });
     }
 

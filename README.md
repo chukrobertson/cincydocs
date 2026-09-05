@@ -1,6 +1,6 @@
 # Cincinnati Document Services
 
-Mobile notary, photo restoration, document scanning, digitizing, printing, and digital archival services in Greater Cincinnati. We bring the office to you.
+Documentation, SOPs, writing, fillable forms, data organization, research, dashboards, photo restoration, and document services for Cincinnati-area individuals and small organizations. Ohio notary by appointment is a secondary offering.
 
 **Website:** [cincydocs.com](https://cincydocs.com) | **Call/Text:** 513 580 4150
 
@@ -66,6 +66,9 @@ python3 -m venv .venv
 
 # Build the static public site
 .venv/bin/python -m forms_library build
+
+# Check internal HTML, CSS, and asset references
+.venv/bin/python tools/check_static_site.py
 
 # Run tests
 .venv/bin/python -m pytest tests/ -v

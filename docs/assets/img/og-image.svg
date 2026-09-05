@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#1a1816"/>
+  <rect x="36" y="36" width="1128" height="558" rx="8" fill="none" stroke="#c49a2a" stroke-opacity="0.35"/>
+  <path d="M78 492h1044" stroke="#660c1a" stroke-width="4"/>
+  <g transform="translate(86 102)">
+    <path d="M12 4h150l70 70v246H12z" fill="#f3e8d6" stroke="#c49a2a" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M162 4v70h70" fill="#e6d7bd" stroke="#c49a2a" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M48 132h108M48 166h108M48 200h76" fill="none" stroke="#660c1a" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="390" y="190" fill="#c49a2a" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500" letter-spacing="8">CINCINNATI</text>
+  <text x="384" y="282" fill="#f3e8d6" font-family="Georgia, serif" font-size="76" font-weight="600">Document Services</text>
+  <text x="390" y="356" fill="#b8b3ab" font-family="Inter, Arial, sans-serif" font-size="30">SOPs  &#x2022;  Fillable forms  &#x2022;  Business tools</text>
+  <text x="390" y="548" fill="#e6d7bd" font-family="Inter, Arial, sans-serif" font-size="28">Describe your project at cincydocs.com</text>
+</svg>

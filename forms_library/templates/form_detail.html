@@ -53,7 +53,7 @@
       </div>
       <div class="btn-group">
         <a href="/forms/" class="btn btn-outline btn-header">FORMS</a>
-        <a href="tel:513 580 4150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
+        <a href="tel:+15135804150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
       </div>
     </div>
   </header>
@@ -102,7 +102,9 @@
           {% if form.last_verified_at %}
             <tr><th>Last Verified</th><td>{{ form.last_verified_at }}</td></tr>
           {% elif form.updated_at %}
-            <tr><th>Last Updated</th><td>{{ form.updated_at }}</td></tr>
+            <tr><th>Content Updated</th><td>{{ form.updated_at }}</td></tr>
+          {% else %}
+            <tr><th>Freshness</th><td>Source verification date not recorded.</td></tr>
           {% endif %}
         </table>
       </div>
@@ -206,7 +208,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; {{ now.year }} Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
+      <p>&copy; Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
     </div>
   </footer>
 </body>

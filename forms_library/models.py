@@ -14,8 +14,6 @@ from pydantic import (
     model_validator,
 )
 
-from forms_library.clock import current_date
-
 
 class PublicationStatus(str, Enum):
     hidden = "hidden"
@@ -190,8 +188,8 @@ class Form(BaseModel):
     review_level: ReviewLevel = ReviewLevel.standard
     last_checked_at: date | None = None
     last_verified_at: date | None = None
-    created_at: date = Field(default_factory=current_date)
-    updated_at: date = Field(default_factory=current_date)
+    created_at: date | None = None
+    updated_at: date | None = None
     tags: list[str] = Field(default_factory=list)
     source_citations: list[SourceCitation] = Field(default_factory=list)
     versions: list[FormVersion] = Field(default_factory=list)

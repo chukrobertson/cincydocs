@@ -47,7 +47,7 @@
       </div>
       <div class="btn-group">
         <a href="/forms/" class="btn btn-outline btn-header">FORMS</a>
-        <a href="tel:513 580 4150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
+        <a href="tel:+15135804150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
       </div>
     </div>
   </header>
@@ -62,13 +62,76 @@
       </div>
 
       <div class="search-wrap">
+        <label class="sr-only" for="search-input">Search forms</label>
         <input type="text" id="search-input" placeholder="Search by title, form number, agency, or topic... (e.g., &quot;sell my car&quot;, &quot;power of attorney&quot;)" autocomplete="off">
         <p class="search-hint">Try: sell my car &middot; power of attorney &middot; lost title &middot; birth certificate &middot; private sale &middot; notary</p>
       </div>
 
       <div class="list-section">
-        <div class="results-count" id="results-count"></div>
-        <div id="forms-grid"></div>
+        <div class="results-count" id="results-count" role="status" aria-live="polite">15 forms found</div>
+        <div id="forms-grid">
+          <article class="form-card">
+            <h3><a href="/forms/irs-form-w9/">Request for Taxpayer Identification Number and Certification</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Internal Revenue Service</span><span class="card-badge">United States</span><span class="card-badge">Taxes</span><span class="card-badge">Form W-9</span></div><p>This is the form you fill out when someone needs your Social Security Number or Employer ID Number for tax reporting — for example, when you start a new job, open a bank account, or do freelance work. You do not send this form to the IRS. Y&hellip;</p><div class="card-footer">Locally hosted &middot; Verified 2026-08-05</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/irs-form-w4/">Employee&#39;s Withholding Certificate</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Internal Revenue Service</span><span class="card-badge">United States</span><span class="card-badge">Taxes</span><span class="card-badge">Form W-4</span></div><p>You fill out this form when you start a new job or when you want to change how much tax is taken out of your paycheck. Your employer uses it to calculate your tax withholding. The IRS website has a withholding estimator tool to help you fil&hellip;</p><div class="card-footer">Locally hosted &middot; Verified 2026-08-05</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/irs-form-ss4/">Application for Employer Identification Number</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Internal Revenue Service</span><span class="card-badge">United States</span><span class="card-badge">Business</span><span class="card-badge">Form SS-4</span></div><p>This form is used to get an EIN — a tax ID number for a business. You need an EIN if you are starting a business, hiring employees, opening a business bank account, or forming a partnership or corporation. You can also apply for an EIN onli&hellip;</p><div class="card-footer">Locally hosted &middot; Verified 2026-08-05</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/irs-form-1040/">U.S. Individual Income Tax Return</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Internal Revenue Service</span><span class="card-badge">United States</span><span class="card-badge">Taxes</span><span class="card-badge">Form 1040</span></div><p>This is the main form used to file your federal income taxes each year. Most people use this form to report their income, claim deductions and credits, and calculate what they owe or what refund they will receive.</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ohio-bmv-vehicle-power-of-attorney/">Ohio BMV Power of Attorney for Certificate of Title</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Ohio Bureau of Motor Vehicles</span><span class="card-badge">Ohio</span><span class="card-badge">Motor vehicles</span><span class="card-badge">BMV 3771</span></div><p>This form lets you give someone else permission to sign title paperwork and handle BMV transactions for your vehicle. People commonly use this when they cannot go to the BMV in person or when a title agency is handling a vehicle sale.</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ohio-bmv-certificate-of-title/">Ohio BMV Application for Certificate of Title to a Motor Vehicle</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Ohio Bureau of Motor Vehicles</span><span class="card-badge">Ohio</span><span class="card-badge">Motor vehicles</span><span class="card-badge">BMV 3774</span></div><p>This is the main form used to apply for an Ohio vehicle certificate of title. Use it when you buy a vehicle, lose your title and need a replacement marked &#34;DUPLICATE,&#34; or transfer ownership. There is a fee. You will need to provide identifi&hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ohio-bmv-casual-sale-title/">Ohio BMV Ownership Assignment and Title Application for Casual Sale</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Ohio Bureau of Motor Vehicles</span><span class="card-badge">Ohio</span><span class="card-badge">Motor vehicles</span><span class="card-badge">BMV 3770</span></div><p>This form is used when you buy or sell a vehicle through a private sale (not from a dealership) in Ohio. It serves as both the title application and the ownership assignment. The seller signs over the title and the buyer applies for a new t&hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ohio-bmv-beneficiary-designation/">Ohio BMV Affidavit for Designation of Beneficiary for Certificate of Title</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Ohio Bureau of Motor Vehicles</span><span class="card-badge">Ohio</span><span class="card-badge">Motor vehicles</span><span class="card-badge">BMV 3811</span></div><p>If you are the sole owner of a vehicle in Ohio, this form lets you name someone who will automatically receive the vehicle title when you pass away. This can help avoid probate for your vehicle. The form must be filed with the county title &hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ohio-secretary-of-state-notary-application/">Ohio Application for Notary Public Commission</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Ohio Secretary of State</span><span class="card-badge">Ohio</span><span class="card-badge">Notary</span></div><p>This is a resource page from the Ohio Secretary of State with frequently asked questions about becoming a notary public. It covers the application process, background check requirements, educational requirements, and how to renew your commi&hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/hamilton-county-auditor-forms/">Hamilton County Auditor Forms Directory</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Hamilton County Auditor</span><span class="card-badge">Hamilton County</span><span class="card-badge">Records requests</span></div><p>The Hamilton County Auditor&#39;s forms page includes downloadable forms for real estate transfers, tax exemptions, dog licensing, agricultural use valuation, name change affidavits, and other property-related filings. This is the central page &hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/hamilton-county-vital-records/">Hamilton County Vital Records Requests</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Hamilton County Public Health</span><span class="card-badge">Hamilton County</span><span class="card-badge">Records requests</span></div><p>Hamilton County Public Health provides certified copies of birth and death certificates for events that occurred in Hamilton County, Ohio. Certified copies are often needed for identification, passports, school registration, estate settleme&hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ssa-form-ss-5/">Application for a Social Security Card</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Social Security Administration</span><span class="card-badge">United States</span><span class="card-badge">Benefits</span><span class="card-badge">Form SS-5</span></div><p>Use this form to get a new Social Security card, replace a lost card, or update your name on your Social Security record. You will need to provide documents proving your identity, age, and citizenship or immigration status. The Social Secur&hellip;</p><div class="card-footer">Locally hosted &middot; Verified 2026-08-05</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ssa-form-ssa-1/">Application for Retirement Insurance Benefits</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Social Security Administration</span><span class="card-badge">United States</span><span class="card-badge">Benefits</span><span class="card-badge">Form SSA-1-BK</span></div><p>This is the form used to apply for Social Security retirement benefits. The SSA also allows you to apply online through their website, but this paper form is available for those who need it or prefer it. You can apply up to four months befo&hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ssa-form-ssa-16/">Application for Disability Insurance Benefits</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Social Security Administration</span><span class="card-badge">United States</span><span class="card-badge">Benefits</span><span class="card-badge">Form SSA-16-BK</span></div><p>If you cannot work because of a medical condition expected to last at least one year or result in death, you may use this form to apply for SSDI benefits. Most people apply online or by phone, but the paper form is available if needed.</p><div class="card-footer">Link to official source</div>
+          </article>
+          <article class="form-card">
+            <h3><a href="/forms/ssa-form-ssa-827/">Authorization to Disclose Information to the Social Security Administration</a></h3>
+            <div class="form-card-meta"><span class="card-badge">Social Security Administration</span><span class="card-badge">United States</span><span class="card-badge">Benefits</span><span class="card-badge">Form SSA-827</span></div><p>This form lets the SSA request your medical records and other personal information when you apply for benefits like Social Security Disability Insurance or Supplemental Security Income. By signing it, you give healthcare providers and other&hellip;</p><div class="card-footer">Link to official source</div>
+          </article>
+        </div>
+        <noscript><p class="no-results no-script-note">The complete form list is shown above. Enable JavaScript to search it.</p></noscript>
         <div id="no-results" class="no-results" style="display:none;">
           <p>No forms match your search. Try different keywords or <a href="mailto:hello@cincydocs.com" class="footer-link">contact us</a> for help finding a form.</p>
         </div>
@@ -82,7 +145,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
+      <p>&copy; Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
     </div>
   </footer>
 
@@ -104,7 +167,7 @@
           render(forms);
         })
         .catch(function() {
-          container.innerHTML = '<p class="no-results">Unable to load forms data.</p>';
+          countEl.textContent = 'Published forms are listed below. Search is unavailable right now.';
         });
     }
 

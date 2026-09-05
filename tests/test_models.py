@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import date
+
 import pytest
 import yaml
 from pydantic import ValidationError
@@ -175,6 +177,23 @@ class TestPublicationStatusRules:
 
 
 class TestManifestValidation:
+    def test_undated_manifest_is_stable_across_dates(self, tmp_path, monkeypatch):
+        data = {"forms": [{"slug": "undated-form", "title": "Undated Form"}]}
+        manifest_path = tmp_path / "undated.yaml"
+        manifest_path.write_text(yaml.safe_dump(data))
+
+        snapshots = []
+        for build_date in (date(2024, 1, 15), date(2026, 9, 1)):
+            monkeypatch.setattr(
+                "forms_library.clock.current_date", lambda build_date=build_date: build_date
+            )
+            form = load_manifest(manifest_path).forms[0]
+            snapshots.append(form.model_dump(mode="json"))
+
+        assert snapshots[0] == snapshots[1]
+        assert snapshots[0]["created_at"] is None
+        assert snapshots[0]["updated_at"] is None
+
     def test_load_valid_manifest(self, tmp_path):
         data = {
             "forms": [

@@ -1,0 +1,49 @@
+name: Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project dependencies
+        run: python -m pip install -e ".[dev,pdf]"
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      - name: Run Ruff
+        run: ruff check .
+
+      - name: Validate manifests
+        run: python -m forms_library validate
+
+      - name: Build static forms pages
+        run: python -m forms_library build
+
+      - name: Check deterministic generated output
+        run: git diff --exit-code -- docs/forms/
+
+      - name: Check local site references
+        run: python tools/check_static_site.py
+
+      - name: Check retired mobile claims
+        run: |
+          if grep -RniE 'mobile office|mobile notary|wherever you are|bring the office|come equipped' docs forms_library README.md; then
+            echo "Retired mobile positioning found in public or source copy."
+            exit 1
+          fi

@@ -1,12 +1,136 @@
 from __future__ import annotations
 
 import json
+from datetime import date
+from pathlib import Path
 
 from forms_library.builder import Builder
-from forms_library.models import Form, Manifest
+from forms_library.models import Form, Manifest, PublicationStatus
+
+TEMPLATES_DIR = Path(__file__).parents[1] / "forms_library" / "templates"
+
+
+def build_real_page(tmp_path, form: Form) -> str:
+    output_dir = tmp_path / "output"
+    builder = Builder(output_dir, TEMPLATES_DIR, tmp_path)
+    builder.build([Manifest(forms=[form])])
+    return (output_dir / "forms" / form.slug / "index.html").read_text()
 
 
 class TestBuilder:
+    def test_undated_form_has_no_false_updated_date(self, tmp_path):
+        html = build_real_page(
+            tmp_path,
+            Form(slug="undated-form", title="Undated Form", publication_status="link_only"),
+        )
+
+        assert "Last Updated" not in html
+        assert "Content Updated" not in html
+        assert "Last Verified" not in html
+        assert "Source verification date not recorded." in html
+
+    def test_explicit_verification_date_is_displayed(self, tmp_path):
+        html = build_real_page(
+            tmp_path,
+            Form(
+                slug="verified-form",
+                title="Verified Form",
+                publication_status="link_only",
+                last_verified_at=date(2025, 4, 12),
+            ),
+        )
+
+        assert "<th>Last Verified</th><td>2025-04-12</td>" in html
+        assert "Source verification date not recorded." not in html
+
+    def test_explicit_content_update_date_is_displayed_as_content_update(self, tmp_path):
+        html = build_real_page(
+            tmp_path,
+            Form(
+                slug="updated-form",
+                title="Updated Form",
+                publication_status="link_only",
+                updated_at=date(2025, 4, 12),
+            ),
+        )
+
+        assert "<th>Content Updated</th><td>2025-04-12</td>" in html
+        assert "Last Verified" not in html
+
+    def test_rebuilding_unchanged_content_is_deterministic(self, tmp_path):
+        output_dir = tmp_path / "output"
+        builder = Builder(output_dir, TEMPLATES_DIR, tmp_path)
+        manifest = Manifest(forms=[
+            Form(slug="stable-form", title="Stable Form", publication_status="link_only"),
+        ])
+
+        builder.build([manifest])
+        first = {
+            path.relative_to(output_dir): path.read_bytes()
+            for path in output_dir.rglob("*")
+            if path.is_file()
+        }
+        builder.build([manifest])
+        second = {
+            path.relative_to(output_dir): path.read_bytes()
+            for path in output_dir.rglob("*")
+            if path.is_file()
+        }
+
+        assert first == second
+
+    def test_build_excludes_non_public_forms(self, tmp_path):
+        output_dir = tmp_path / "output"
+        builder = Builder(output_dir, TEMPLATES_DIR, tmp_path)
+        manifest = Manifest(forms=[
+            Form(
+                slug="public-link-form",
+                title="Public Link Form",
+                publication_status=PublicationStatus.link_only,
+            ),
+            Form(
+                slug="public-local-form",
+                title="Public Local Form",
+                publication_status=PublicationStatus.locally_hosted,
+            ),
+            Form(
+                slug="hidden-form",
+                title="Hidden Form",
+                publication_status=PublicationStatus.hidden,
+            ),
+            Form(
+                slug="internal-form",
+                title="Internal Form",
+                publication_status=PublicationStatus.internal_only,
+            ),
+            Form(
+                slug="archived-form",
+                title="Archived Form",
+                publication_status=PublicationStatus.archived,
+            ),
+            Form(
+                slug="superseded-form",
+                title="Superseded Form",
+                publication_status=PublicationStatus.superseded,
+            ),
+        ])
+
+        builder.build([manifest])
+
+        forms_dir = output_dir / "forms"
+        assert (forms_dir / "public-link-form" / "index.html").exists()
+        assert (forms_dir / "public-local-form" / "index.html").exists()
+        for slug in ("hidden-form", "internal-form", "archived-form", "superseded-form"):
+            assert not (forms_dir / slug).exists()
+
+        search_index = json.loads((forms_dir / "forms.json").read_text())
+        assert {item["slug"] for item in search_index} == {
+            "public-link-form",
+            "public-local-form",
+        }
+        browse_page = (forms_dir / "index.html").read_text()
+        assert "Internal Form" not in browse_page
+
     def test_collect_forms_deduplication(self):
         builder = Builder(None, None, None)  # type: ignore[arg-type]
         manifest1 = Manifest(forms=[
