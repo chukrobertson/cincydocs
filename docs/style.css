@@ -325,6 +325,10 @@ header .container {
   line-height: 1.3;
 }
 
+.special-projects-panel .cta-note {
+  color: var(--grey-lt);
+}
+
 .special-projects-actions {
   margin-top: 1.25rem;
 }
