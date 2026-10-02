@@ -40,7 +40,7 @@ class TestBuilder:
             ),
         )
 
-        assert "<th>Last Verified</th><td>2025-04-12</td>" in html
+        assert "<th>Last Checked</th><td>April 12, 2025</td>" in html
         assert "Source verification date not recorded." not in html
 
     def test_explicit_content_update_date_is_displayed_as_content_update(self, tmp_path):
@@ -54,7 +54,7 @@ class TestBuilder:
             ),
         )
 
-        assert "<th>Content Updated</th><td>2025-04-12</td>" in html
+        assert "<th>Content Updated</th><td>April 12, 2025</td>" in html
         assert "Last Verified" not in html
 
     def test_rebuilding_unchanged_content_is_deterministic(self, tmp_path):
@@ -203,3 +203,30 @@ class TestBuilder:
 
         assert (output_dir / "forms" / "irs-form-w9" / "index.html").exists()
         assert (output_dir / "forms" / "index.html").exists()
+
+    def test_build_copies_local_preview_assets(self, tmp_path):
+        output_dir = tmp_path / "output"
+        builder = Builder(output_dir, TEMPLATES_DIR, tmp_path)
+        manifest = Manifest(forms=[
+            Form(
+                slug="public-form",
+                title="Public Form",
+                publication_status="link_only",
+            ),
+        ])
+
+        builder.build([manifest])
+
+        assert (output_dir / "index.html").is_file()
+        assert (output_dir / "style.css").is_file()
+        assert (output_dir / "forms-search.js").is_file()
+        assert (output_dir / "assets" / "img" / "logo.svg").is_file()
+
+    def test_disclaimer_apostrophe_is_not_double_escaped(self, tmp_path):
+        html = build_real_page(
+            tmp_path,
+            Form(slug="form", title="Form", publication_status="link_only"),
+        )
+
+        assert "agency&#39;s current instructions" in html
+        assert "&amp;rsquo;" not in html

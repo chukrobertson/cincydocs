@@ -6,53 +6,34 @@
   <meta name="theme-color" content="#0d0d0d">
   <title>Forms Library &mdash; Cincinnati Document Services</title>
   <meta name="description" content="Searchable library of official public forms. Find government forms with plain-language descriptions and links to official sources.">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Forms Library — Cincinnati Document Services">
+  <meta property="og:description" content="Search official public forms by title, agency, form number, or everyday topic.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cincydocs.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-  <style>
-    .library-hero { text-align: center; padding: 4rem 0 2rem; }
-    .library-hero h1 { margin-bottom: 0.75rem; }
-    .library-hero p { color: var(--grey); max-width: 580px; margin: 0 auto; font-family: var(--font-sans); font-weight: 300; }
-    .search-wrap { max-width: 620px; margin: 0 auto 1rem; }
-    .search-wrap input { width: 100%; padding: 0.9rem 1.25rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: var(--parchment); font-family: var(--font-sans); font-size: 1rem; font-weight: 300; transition: border-color 0.3s; }
-    .search-wrap input:focus { outline: none; border-color: var(--gold); }
-    .search-hint { color: var(--marble); font-size: 0.78rem; margin-top: 0.5rem; text-align: center; font-family: var(--font-sans); }
-    .results-count { color: var(--marble); font-family: var(--font-sans); font-size: 0.8rem; margin-bottom: 1.25rem; text-align: center; }
-    .list-section { padding: 0 0 4rem; }
-    .form-card { background: rgba(245, 232, 214, 0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 1.5rem 1.75rem; margin-bottom: 0.75rem; transition: border-color 0.3s ease, background-color 0.3s ease; }
-    .form-card:hover { border-color: var(--maroon); background-color: rgba(102, 12, 26, 0.04); }
-    .form-card h3 { margin-bottom: 0.3rem; font-family: var(--font-serif); font-weight: 600; color: var(--parchment); font-size: 1.1rem; }
-    .form-card h3 a { color: var(--parchment); text-decoration: none; transition: color 0.3s; }
-    .form-card h3 a:hover { color: var(--gold); }
-    .form-card-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0 0.5rem; }
-    .form-card p { font-family: var(--font-sans); font-weight: 300; color: var(--grey); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0; }
-    .card-badge { display: inline-block; padding: 0.2rem 0.7rem; border-radius: 3px; font-family: var(--font-sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; background: rgba(196,154,42,0.1); color: var(--gold); border: 1px solid rgba(196,154,42,0.15); }
-    .card-badge-internal { background: rgba(58,53,48,0.3); color: var(--marble); border-color: var(--marble); }
-    .card-badge-elevated { background: rgba(163,22,33,0.1); color: #e06060; border-color: rgba(163,22,33,0.25); }
-    .card-footer { font-family: var(--font-sans); font-size: 0.72rem; color: var(--marble); margin-top: 0.4rem; }
-    .no-results { text-align: center; padding: 3rem 0; color: var(--marble); font-family: var(--font-sans); }
-    .disclaimer-box { background: rgba(196,154,42,0.04); border: 1px solid rgba(196,154,42,0.12); border-radius: 4px; padding: 1.25rem 1.5rem; margin-top: 0; font-size: 0.8rem; color: var(--grey-lt); font-family: var(--font-sans); font-weight: 300; line-height: 1.6; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
     <div class="container">
-      <div class="logo">
-        <a href="/" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;">
-          <img src="/assets/img/cincydocs-header.png" alt="Cincinnati Document Services" class="logo-img">
-        </a>
-      </div>
-      <div class="btn-group">
-        <a href="/forms/" class="btn btn-outline btn-header">FORMS</a>
-        <a href="tel:+15135804150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
-      </div>
+      <a href="../" class="logo" aria-label="Cincinnati Document Services home">
+        <img src="../assets/img/logo.svg" alt="" class="logo-img" width="64" height="64">
+        <span class="logo-name">CincyDocs</span>
+      </a>
+      <nav class="btn-group header-nav" aria-label="Primary navigation">
+        <a href="../" class="btn btn-outline btn-header nav-secondary">HOME</a>
+        <a href="./" class="btn btn-outline btn-header" aria-current="page">FORMS</a>
+        <a href="../#quote" class="btn btn-maroon btn-header">START A PROJECT</a>
+      </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <div class="container">
       <div class="library-hero">
         <h1 class="section-title" style="margin-bottom:0.75rem;">
@@ -73,7 +54,7 @@
           {%- for form in forms %}
           {%- set is_internal = form.agency and 'Cincinnati Document Services' in form.agency %}
           <article class="form-card">
-            <h3><a href="/forms/{{ form.slug }}/">{{ form.title }}</a></h3>
+            <h3><a href="{{ form.slug }}/">{{ form.title }}</a></h3>
             <div class="form-card-meta">
               {%- if form.agency and not is_internal %}<span class="card-badge">{{ form.agency }}</span>{% endif -%}
               {%- if form.jurisdiction %}<span class="card-badge">{{ form.jurisdiction }}</span>{% endif -%}
@@ -83,7 +64,7 @@
             </div>
             {%- set summary = form.plain_language_summary or form.description %}
             {%- if summary %}<p>{{ summary[:240] }}{% if summary|length > 240 %}&hellip;{% endif %}</p>{% endif -%}
-            <div class="card-footer">{% if form.locally_stored %}Locally hosted{% else %}Link to official source{% endif %}{% if form.last_verified_at %} &middot; Verified {{ form.last_verified_at }}{% endif %}</div>
+            <div class="card-footer">{% if form.locally_stored %}Download available here{% else %}Link to issuing agency{% endif %}{% if form.last_verified_at %} &middot; Checked {{ format_date(form.last_verified_at) }}{% endif %}</div>
           </article>
           {%- endfor %}
         </div>
@@ -105,86 +86,6 @@
     </div>
   </footer>
 
-  <script>
-  (function() {
-    var forms = [];
-    var container = document.getElementById('forms-grid');
-    var input = document.getElementById('search-input');
-    var countEl = document.getElementById('results-count');
-    var noResults = document.getElementById('no-results');
-
-    function loadForms() {
-      fetch('/forms/forms.json')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          forms = data.filter(function(f) {
-            return f.publication_status !== 'hidden' && f.publication_status !== 'internal_only';
-          });
-          render(forms);
-        })
-        .catch(function() {
-          countEl.textContent = 'Published forms are listed below. Search is unavailable right now.';
-        });
-    }
-
-    function escapeHTML(str) {
-      var div = document.createElement('div');
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    }
-
-    function render(list) {
-      if (list.length === 0) {
-        container.innerHTML = '';
-        noResults.style.display = 'block';
-        countEl.textContent = '';
-        return;
-      }
-      noResults.style.display = 'none';
-      countEl.textContent = list.length + ' form' + (list.length !== 1 ? 's' : '') + ' found';
-
-      var html = '';
-      for (var i = 0; i < list.length; i++) {
-        var f = list[i];
-        var isInternal = f.agency && f.agency.indexOf('Cincinnati Document Services') === 0;
-        var verified = f.last_verified_at ? ' &middot; Verified ' + f.last_verified_at : '';
-        html += '<div class="form-card">';
-        html += '<h3><a href="/forms/' + encodeURIComponent(f.slug) + '/">' + escapeHTML(f.title) + '</a></h3>';
-        html += '<div class="form-card-meta">';
-        if (f.agency && !isInternal) html += '<span class="card-badge">' + escapeHTML(f.agency) + '</span>';
-        if (f.jurisdiction) html += '<span class="card-badge">' + escapeHTML(f.jurisdiction) + '</span>';
-        if (f.category) html += '<span class="card-badge">' + escapeHTML(f.category) + '</span>';
-        if (f.form_number) html += '<span class="card-badge">' + escapeHTML(f.form_number) + '</span>';
-        if (isInternal) html += '<span class="card-badge card-badge-internal">INTERNAL</span>';
-        html += '</div>';
-        if (f.summary) html += '<p>' + escapeHTML(f.summary.substring(0, 240)) + (f.summary.length > 240 ? '&hellip;' : '') + '</p>';
-        html += '<div class="card-footer">' + (f.locally_stored ? 'Locally hosted' : 'Link to official source') + verified + '</div>';
-        html += '</div>';
-      }
-      container.innerHTML = html;
-    }
-
-    function search(query) {
-      var q = query.toLowerCase().trim();
-      if (!q) { render(forms); return; }
-      var terms = q.split(/\s+/);
-      var results = forms.filter(function(f) {
-        var haystack = [
-          f.title, f.form_number, f.agency, f.jurisdiction,
-          f.category, f.description, f.summary,
-          (f.tags || []).join(' ')
-        ].join(' ').toLowerCase();
-        for (var j = 0; j < terms.length; j++) {
-          if (haystack.indexOf(terms[j]) === -1) return false;
-        }
-        return true;
-      });
-      render(results);
-    }
-
-    input.addEventListener('input', function() { search(this.value); });
-    loadForms();
-  })();
-  </script>
+  <script src="../forms-search.js" defer></script>
 </body>
 </html>

@@ -11,24 +11,24 @@ Documentation, SOPs, writing, fillable forms, data organization, research, dashb
 | Directory | Purpose |
 |-----------|---------|
 | `docs/`   | GitHub Pages website (deployed to cincydocs.com) |
-| `forms_library/` | Python CLI for managing the public forms library |
+| `forms_library/` | Python CLI and templates for the retained local forms library |
 | `data/` | Form manifests, downloads, and extracted text |
 | `tests/` | Test suite |
 
-The site is a static HTML/CSS site deployed from the `docs/` folder via GitHub Pages. The forms library generates static HTML pages into `docs/forms/`.
+The site is a static HTML/CSS site deployed from the `docs/` folder via GitHub Pages. The forms library is retained in the repository but is not published. Its generator writes an ignored local preview to `build/forms-library-preview/`.
 
 ---
 
 ## Forms Library
 
-A searchable directory of official public forms with plain-language descriptions. 15 forms live at [cincydocs.com/forms/](https://cincydocs.com/forms/).
+A searchable directory of official public forms with plain-language descriptions. The library is currently available only as a local preview and is not served from cincydocs.com.
 
-**No runtime server required.** The public site is static HTML served by GitHub Pages. You run the CLI locally when adding or updating forms.
+**No runtime server required.** Run the CLI locally when adding, updating, or previewing forms.
 
-### Currently Published
+### Currently in the Local Library
 
-#### Locally Hosted (4)
-Forms stored on cincydocs.com with direct PDF download:
+#### Bundled in the Preview (4)
+Forms copied into the generated local preview with direct PDF download:
 
 | Form | Agency | Notes |
 |------|--------|-------|
@@ -37,7 +37,7 @@ Forms stored on cincydocs.com with direct PDF download:
 | SS-4 (Employer ID) | IRS | 2 pages, fillable |
 | SS-5 (Social Security Card) | SSA | 5 pages, fillable |
 
-#### Link-Only (11)
+#### Agency-Link Only (11)
 Forms linked to official sources:
 
 | Form | Agency |
@@ -64,7 +64,7 @@ python3 -m venv .venv
 # Validate all manifest files
 .venv/bin/python -m forms_library validate
 
-# Build the static public site
+# Build the local, non-published preview
 .venv/bin/python -m forms_library build
 
 # Check internal HTML, CSS, and asset references
@@ -82,7 +82,7 @@ python3 -m venv .venv
 | `import-manifest <file>` | Validate and preview a manifest |
 | `fetch <slug>` | Download a form PDF from its official URL |
 | `register <slug> <file>` | Register a manually downloaded PDF |
-| `build` | Generate static HTML pages into `docs/forms/` |
+| `build` | Generate a local preview in `build/forms-library-preview/` |
 | `verify --all` | Check all form URLs for broken links (HEAD with GET fallback); saves a Cincinnati-time run timestamp |
 | `report` | Generate a maintenance report (broken links, stale verifications) |
 | `list-forms` | List forms, filterable by status, category, or jurisdiction |
@@ -134,27 +134,24 @@ python3 -m forms_library register example-form ~/Downloads/form.pdf
 
 5. For link-only forms, change `publication_status: hidden` to `link_only`.
 
-6. Build and deploy:
+6. Build the local preview:
 
 ```bash
 python3 -m forms_library build
-git add docs/forms/ data/manifests/
-git commit -m "Add example form"
-git push
 ```
 
 ### Publication Statuses
 
-| Status | Publicly visible? | Description |
+| Status | Included in preview? | Description |
 |--------|-------------------|-------------|
 | `hidden` | No | Not yet reviewed |
 | `internal_only` | No | Internal templates only |
 | `link_only` | Yes | Links to official source only |
-| `locally_hosted` | Yes | PDF copied into docs/forms/, served from cincydocs.com |
+| `locally_hosted` | Yes | PDF copied into the generated local preview |
 | `archived` | No | No longer current |
 | `superseded` | No | Replaced by newer version |
 
-Only `link_only` and `locally_hosted` forms are included in the public site output.
+Only `link_only` and `locally_hosted` forms are included in the generated local preview. The preview output is ignored by Git and is not part of the deployed `docs/` site.
 
 ### Review Levels
 
@@ -185,18 +182,21 @@ data/
     ohio_bmv.yaml     # Ohio BMV forms (3770, 3771, 3774, 3811)
     ohio_local.yaml   # Hamilton County, Ohio SOS
     internal_templates.yaml  # Internal CDS forms (not public)
-  downloads/          # Fetched form PDFs (gitignored — copies go to docs/forms/)
+  downloads/          # Fetched form PDFs (gitignored — copied into local previews)
     federal/
     ohio/
   extracted_text/     # Extracted PDF text (gitignored)
   reports/            # Generated verify/report output (gitignored)
 
-docs/forms/           # Generated static site (committed for GitHub Pages)
-  index.html          # Search/browse page
-  forms.json          # Client-side search index
-  irs-form-w9/        # Per-form directory
-    index.html         #   Form detail page
-    irs-form-w9.pdf    #   PDF (locally_hosted only)
+build/forms-library-preview/  # Generated local preview (gitignored)
+  style.css
+  forms-search.js
+  forms/
+    index.html        # Search/browse page
+    forms.json        # Client-side search index
+    irs-form-w9/      # Per-form directory
+      index.html      # Form detail page
+      irs-form-w9.pdf # PDF (locally_hosted only)
 ```
 
 ## License

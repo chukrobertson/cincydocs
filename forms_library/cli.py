@@ -31,7 +31,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 MANIFESTS_DIR = DATA_DIR / "manifests"
 DOWNLOADS_DIR = DATA_DIR / "downloads"
 EXTRACTED_DIR = DATA_DIR / "extracted_text"
-DOCS_DIR = PROJECT_ROOT / "docs"
+PREVIEW_DIR = PROJECT_ROOT / "build" / "forms-library-preview"
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 
 
@@ -198,7 +198,7 @@ def _do_fetch(form: Form) -> None:
         console.print(f"  [yellow]PDF parse note: {pdf_info.error}[/yellow]")
 
     console.print("[green]Download complete[/green]")
-    console.print("[dim]Run 'forms-library build' to regenerate the public site[/dim]")
+    console.print("[dim]Run 'forms-library build' to regenerate the local preview[/dim]")
 
 
 @app.command()
@@ -233,14 +233,17 @@ def register(
     if pdf_info.fillable:
         console.print("  Fillable: yes")
 
-    console.print("[dim]Run 'forms-library build' to regenerate the public site[/dim]")
+    console.print("[dim]Run 'forms-library build' to regenerate the local preview[/dim]")
 
 
 @app.command()
 def build(
-    output: Path | None = typer.Option(None, help="Output directory (default: docs/)"),
+    output: Path | None = typer.Option(
+        None,
+        help="Output directory (default: build/forms-library-preview/)",
+    ),
 ) -> None:
-    output_dir = output or DOCS_DIR
+    output_dir = output or PREVIEW_DIR
 
     try:
         manifests = load_all_manifests(MANIFESTS_DIR)
@@ -258,7 +261,7 @@ def build(
     builder = Builder(output_dir=output_dir, templates_dir=TEMPLATES_DIR, data_dir=DATA_DIR)
     builder.build(manifests)
 
-    console.print(f"[green]Built {forms_count} form(s) to {output_dir / 'forms'}[/green]")
+    console.print(f"[green]Built {forms_count} form(s) for local preview at {output_dir / 'forms'}[/green]")
 
 
 @app.command()

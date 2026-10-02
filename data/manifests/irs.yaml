@@ -6,7 +6,7 @@ forms:
     jurisdiction: United States
     category: Taxes
     description: Used to provide a correct Taxpayer Identification Number (TIN) to the person who is required to file an information return with the IRS to report certain transactions.
-    plain_language_summary: This is the form you fill out when someone needs your Social Security Number or Employer ID Number for tax reporting — for example, when you start a new job, open a bank account, or do freelance work. You do not send this form to the IRS. You give it to the business or person who requested it.
+    plain_language_summary: Use this form when a business or other requester needs your correct taxpayer identification number for information reporting — for example, when you are paid as an independent contractor. Employees generally complete Form W-4 instead. Return Form W-9 to the requester; do not send it directly to the IRS.
     official_page_url: https://www.irs.gov/forms-pubs/about-form-w-9
     official_download_url: https://www.irs.gov/pub/irs-pdf/fw9.pdf
     redistribution_status: permitted

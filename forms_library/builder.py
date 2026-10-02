@@ -12,7 +12,7 @@ DISCLAIMER = (
     "Cincinnati Document Services is not a law firm or government agency. "
     "This page provides general document information and links to official sources. "
     "It does not provide legal, tax, financial, medical, or eligibility advice. "
-    "Requirements can change. Review the issuing agency&rsquo;s current instructions "
+    "Requirements can change. Review the issuing agency's current instructions "
     "before relying on a form."
 )
 PUBLIC_PUBLICATION_STATUSES = {
@@ -25,6 +25,25 @@ def _json_default(obj: object) -> str:
     if isinstance(obj, (date, datetime)):
         return obj.isoformat()
     raise TypeError(f"Cannot serialize {type(obj)}")
+
+
+def _format_date(value: object) -> str:
+    """Format stored ISO dates for visitors while preserving invalid values."""
+    if isinstance(value, datetime):
+        parsed = value.date()
+    elif isinstance(value, date):
+        parsed = value
+    else:
+        try:
+            parsed = date.fromisoformat(str(value)[:10])
+        except (TypeError, ValueError):
+            return str(value)
+    return f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
+
+
+def _clean_generated_html(html: str) -> str:
+    """Keep generated pages deterministic and free of template-only whitespace."""
+    return "\n".join(line.rstrip() for line in html.splitlines()).rstrip() + "\n"
 
 
 def _form_to_dict(form: Form) -> dict:
@@ -50,6 +69,7 @@ def _form_to_dict(form: Form) -> dict:
 class Builder:
     def __init__(self, output_dir: Path, templates_dir: Path, data_dir: Path) -> None:
         self.output_dir = output_dir
+        self.templates_dir = templates_dir
         self.data_dir = data_dir
         self.env = Environment(
             loader=FileSystemLoader(str(templates_dir)),
@@ -57,6 +77,7 @@ class Builder:
         )
         self.env.globals["disclaimer"] = DISCLAIMER
         self.env.globals["pub_status"] = PublicationStatus
+        self.env.globals["format_date"] = _format_date
 
     def build(self, manifests: list[Manifest]) -> None:
         forms = self._collect_forms(manifests)
@@ -68,11 +89,35 @@ class Builder:
         forms_dir = self.output_dir / "forms"
         forms_dir.mkdir(parents=True, exist_ok=True)
 
+        self._copy_preview_assets()
         self._clean_non_public_dirs(forms, public_forms, forms_dir)
         self._build_form_pages(public_forms, forms_dir)
         self._copy_local_files(public_forms, forms_dir)
         self._build_search_index(public_forms, forms_dir)
         self._build_browse_page(public_forms, forms_dir)
+
+    def _copy_preview_assets(self) -> None:
+        """Copy the assets needed to open a generated local preview."""
+        import shutil
+
+        project_root = self.templates_dir.parent.parent
+        assets = (
+            (project_root / "docs" / "index.html", self.output_dir / "index.html"),
+            (project_root / "docs" / "style.css", self.output_dir / "style.css"),
+            (
+                self.templates_dir.parent / "static" / "forms-search.js",
+                self.output_dir / "forms-search.js",
+            ),
+        )
+        for source, destination in assets:
+            if source.exists() and source.resolve() != destination.resolve():
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, destination)
+
+        source_images = project_root / "docs" / "assets"
+        destination_images = self.output_dir / "assets"
+        if source_images.exists() and source_images.resolve() != destination_images.resolve():
+            shutil.copytree(source_images, destination_images, dirs_exist_ok=True)
 
     def _clean_non_public_dirs(
         self, all_forms: list[Form], public_forms: list[Form], forms_dir: Path
@@ -98,7 +143,7 @@ class Builder:
         for form in forms:
             slug_dir = forms_dir / form.slug
             slug_dir.mkdir(parents=True, exist_ok=True)
-            html = template.render(form=_form_to_dict(form))
+            html = _clean_generated_html(template.render(form=_form_to_dict(form)))
             (slug_dir / "index.html").write_text(html)
 
     def _copy_local_files(self, forms: list[Form], forms_dir: Path) -> None:
@@ -141,5 +186,7 @@ class Builder:
 
     def _build_browse_page(self, forms: list[Form], forms_dir: Path) -> None:
         template = self.env.get_template("forms_browse.html")
-        html = template.render(forms=[_form_to_dict(f) for f in forms])
+        html = _clean_generated_html(
+            template.render(forms=[_form_to_dict(f) for f in forms])
+        )
         (forms_dir / "index.html").write_text(html)

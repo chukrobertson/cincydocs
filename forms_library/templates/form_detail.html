@@ -4,65 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ form.title or form.slug }} &mdash; Cincinnati Document Services Forms Library</title>
-  <meta name="robots" content="{% if form.publication_status.value in ('hidden', 'internal_only') %}noindex, nofollow{% else %}index, follow{% endif %}">
+  <meta name="description" content="{{ form.plain_language_summary or form.description or ('Find ' ~ form.title ~ ' with links to the issuing agency and current form information.') }}">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0d0d0d">
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <meta property="og:title" content="{{ form.title }} — CincyDocs Forms Library">
+  <meta property="og:description" content="{{ form.plain_language_summary or form.description or 'Official form information and issuing-agency links.' }}">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://cincydocs.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-  <style>
-    .form-detail { padding: 3rem 0; }
-    .form-detail h1 { margin-bottom: 0.25rem; color: var(--parchment); }
-    .form-number { font-family: var(--font-sans); font-size: 0.9rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1.5rem; }
-    .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .badge { display: inline-block; padding: 0.25rem 0.9rem; border-radius: 3px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
-    .badge-official { background: rgba(196,154,42,0.12); color: var(--gold); border: 1px solid rgba(196,154,42,0.25); }
-    .badge-agency { background: rgba(102,12,26,0.12); color: #c44; border: 1px solid rgba(102,12,26,0.25); }
-    .badge-jurisdiction { background: rgba(102,12,26,0.12); color: #c44; border: 1px solid rgba(102,12,26,0.25); }
-    .badge-elevated { background: rgba(163,22,33,0.15); color: #e06060; border: 1px solid rgba(163,22,33,0.3); }
-    .badge-internal { background: rgba(58,53,48,0.3); color: var(--marble); border: 1px solid var(--marble); }
-    .detail-section { padding: 2rem; margin-bottom: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; }
-    .detail-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--parchment); font-family: var(--font-serif); font-weight: 600; }
-    .detail-section p, .detail-section li { color: var(--grey); font-family: var(--font-sans); font-weight: 300; line-height: 1.75; }
-    .detail-section ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-    .meta-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    .meta-table th, .meta-table td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; font-family: var(--font-sans); }
-    .meta-table th { color: var(--parchment); font-weight: 500; white-space: nowrap; width: 30%; }
-    .meta-table td { color: var(--grey); }
-    .source-link { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); font-family: var(--font-sans); }
-    .source-link:hover { color: var(--parchment); border-bottom-color: var(--parchment); }
-    .citation-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; margin-left: 0.5rem; text-transform: uppercase; }
-    .citation-verified { background: rgba(40,167,69,0.12); color: #4caf50; }
-    .citation-unverified { background: rgba(255,193,7,0.12); color: #ffc107; }
-    .unknown-notice { color: var(--marble); font-style: italic; }
-    .back-link { display: inline-block; margin-bottom: 2rem; color: var(--gold); text-decoration: none; font-family: var(--font-sans); font-size: 0.9rem; transition: color 0.3s; }
-    .back-link:hover { color: var(--parchment); }
-    .action-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
-    .disclaimer-box { background: rgba(196,154,42,0.04); border: 1px solid rgba(196,154,42,0.12); border-radius: 4px; padding: 1.25rem 1.5rem; margin-top: 1.5rem; font-size: 0.8rem; color: var(--grey-lt); font-family: var(--font-sans); line-height: 1.6; }
-    @media print { header, footer, .action-row, .back-link, .disclaimer-box { display: none; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
     <div class="container">
-      <div class="logo">
-        <a href="/" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;">
-          <img src="/assets/img/cincydocs-header.png" alt="Cincinnati Document Services" class="logo-img">
-        </a>
-      </div>
-      <div class="btn-group">
-        <a href="/forms/" class="btn btn-outline btn-header">FORMS</a>
-        <a href="tel:+15135804150" class="btn btn-maroon btn-header">&#x260E; CALL</a>
-      </div>
+      <a href="../../" class="logo" aria-label="Cincinnati Document Services home">
+        <img src="../../assets/img/logo.svg" alt="" class="logo-img" width="64" height="64">
+        <span class="logo-name">CincyDocs</span>
+      </a>
+      <nav class="btn-group header-nav" aria-label="Primary navigation">
+        <a href="../../" class="btn btn-outline btn-header nav-secondary">HOME</a>
+        <a href="../" class="btn btn-outline btn-header">FORMS</a>
+        <a href="../../#quote" class="btn btn-maroon btn-header">START A PROJECT</a>
+      </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <div class="container form-detail">
-      <a href="/forms/" class="back-link">&larr; Back to Forms Library</a>
+      <a href="../" class="back-link">&larr; Back to Forms Library</a>
 
-      <h1 class="section-title" style="text-align:left; margin-bottom:0.25rem;">{{ form.title }}</h1>
+      <h1 class="form-detail-title">{{ form.title }}</h1>
       {% if form.form_number %}<div class="form-number">{{ form.form_number }}</div>{% endif %}
 
       <div class="badge-row">
@@ -70,13 +45,10 @@
         {% if is_internal %}
           <span class="badge badge-internal">INTERNAL TEMPLATE</span>
         {% else %}
-          <span class="badge badge-official">OFFICIAL FORM</span>
+          <span class="badge badge-official">ISSUING-AGENCY FORM</span>
         {% endif %}
         {% if form.agency and not is_internal %}<span class="badge badge-agency">{{ form.agency }}</span>{% endif %}
         {% if form.jurisdiction %}<span class="badge badge-jurisdiction">{{ form.jurisdiction }}</span>{% endif %}
-        {% if form.review_level == 'elevated' %}
-          <span class="badge badge-elevated">&#x26A0; ELEVATED REVIEW</span>
-        {% endif %}
       </div>
 
       {% if form.plain_language_summary or form.description %}
@@ -100,9 +72,9 @@
           {% if form.page_count is not none %}<tr><th>Page Count</th><td>{{ form.page_count }}</td></tr>{% endif %}
           {% if form.fillable %}<tr><th>Fillable</th><td>Yes &mdash; can be filled out on a computer</td></tr>{% endif %}
           {% if form.last_verified_at %}
-            <tr><th>Last Verified</th><td>{{ form.last_verified_at }}</td></tr>
+            <tr><th>Last Checked</th><td>{{ format_date(form.last_verified_at) }}</td></tr>
           {% elif form.updated_at %}
-            <tr><th>Content Updated</th><td>{{ form.updated_at }}</td></tr>
+            <tr><th>Content Updated</th><td>{{ format_date(form.updated_at) }}</td></tr>
           {% else %}
             <tr><th>Freshness</th><td>Source verification date not recorded.</td></tr>
           {% endif %}
@@ -133,29 +105,13 @@
       </div>
       {% endif %}
 
-      {% if not has_citations and form.requires_notarization is none and form.requires_witnesses is none %}
-      <div class="detail-section">
-        <h2><span class="ornament">&#x2767;</span> Requirements</h2>
-        <p class="unknown-notice">Notarization, witness, fee, and filing requirements have not been confirmed from an authoritative source. Review the official instructions before completing this form.</p>
-      </div>
-      {% endif %}
-
-      {% if form.tags %}
-      <div class="detail-section">
-        <h2><span class="ornament">&#x2767;</span> Search Terms</h2>
-        <div class="badge-row">
-          {% for tag in form.tags %}<span class="badge badge-official" style="border-color:rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); color:var(--grey-lt);">{{ tag }}</span>{% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
       {% set has_related = form.related_forms and form.related_forms|length > 0 %}
       {% if has_related %}
       <div class="detail-section">
         <h2><span class="ornament">&#x2767;</span> Related Forms</h2>
         <ul>
           {% for r in form.related_forms %}
-          <li><a href="/forms/{{ r.target_slug }}/" class="source-link">{{ r.target_slug }}</a> &mdash; {{ r.relationship_type.value.replace('-', ' ')|title }}{% if r.notes %}: {{ r.notes }}{% endif %}</li>
+          <li><a href="../{{ r.target_slug }}/" class="source-link">{{ r.target_slug }}</a> &mdash; {{ r.relationship_type.value.replace('-', ' ')|title }}{% if r.notes %}: {{ r.notes }}{% endif %}</li>
           {% endfor %}
         </ul>
       </div>
@@ -163,7 +119,7 @@
 
       <div class="detail-section">
         <h2><span class="ornament">&#x2767;</span> Where to Get This Form</h2>
-        <p style="color:var(--grey); margin-bottom:0.75rem;">
+        <p>
           {% if form.publication_status.value == 'locally_hosted' %}
             This form is available for download below. You can also find it on the official source page.
           {% elif form.publication_status.value == 'link_only' %}
@@ -179,11 +135,11 @@
         <div class="action-row">
           {% if form.publication_status.value == 'locally_hosted' and form.local_filename %}
             <a href="{{ form.local_filename }}" class="btn btn-gold btn-lg" style="padding:0.65rem 1.5rem; font-size:0.85rem;">
-              &#x1F4E5; DOWNLOAD FORM
+              DOWNLOAD PDF
             </a>
           {% elif has_dl %}
             <a href="{{ form.official_download_url }}" class="btn btn-gold btn-lg" target="_blank" rel="noopener" style="padding:0.65rem 1.5rem; font-size:0.85rem;">
-              &#x1F4E5; DOWNLOAD FORM
+              DOWNLOAD FORM
             </a>
           {% endif %}
           {% if has_page %}
@@ -191,10 +147,13 @@
               OFFICIAL PAGE &nearr;
             </a>
           {% endif %}
-          <a href="javascript:window.print()" class="btn btn-outline btn-lg" style="padding:0.65rem 1.5rem; font-size:0.85rem;">
-            &#x1F5A8; PRINT
-          </a>
+          <button type="button" class="btn btn-outline btn-lg" id="print-page" style="padding:0.65rem 1.5rem; font-size:0.85rem;">
+            PRINT PAGE
+          </button>
         </div>
+        {% if not has_citations and form.requires_notarization is none and form.requires_witnesses is none %}
+          <p class="requirements-note">Filing, fee, witness, and notarization requirements may change. Check the issuing agency&rsquo;s current instructions before completing this form.</p>
+        {% endif %}
         {% if not has_page and not has_dl %}
           <p class="unknown-notice">No official link has been confirmed yet. Contact {{ form.agency or 'the issuing agency' }} for the current version.</p>
         {% endif %}
@@ -211,5 +170,10 @@
       <p>&copy; Cincinnati Document Services. All rights reserved. &middot; <a href="mailto:hello@cincydocs.com" class="footer-link">hello@cincydocs.com</a></p>
     </div>
   </footer>
+  <script>
+    document.getElementById('print-page').addEventListener('click', function () {
+      window.print();
+    });
+  </script>
 </body>
 </html>

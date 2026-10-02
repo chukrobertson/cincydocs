@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cincydocs-forms"
 version = "0.1.0"
-description = "CincyDocs Forms Library - searchable public forms directory"
+description = "CincyDocs Forms Library - local searchable forms directory"
 requires-python = ">=3.12"
 dependencies = [
     "pydantic>=2.0",
@@ -27,12 +27,12 @@ dev = [
 include = ["forms_library*"]
 
 [tool.setuptools.package-data]
-forms_library = ["templates/*.html"]
+forms_library = ["templates/*.html", "static/*.js"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-extend-exclude = ["docs/forms/", ".venv/"]
+extend-exclude = ["build/", ".venv/"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP", "B"]
