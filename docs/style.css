@@ -458,6 +458,166 @@ header .container {
   font-size: 0.86rem;
 }
 
+/* ---- Card layouts for data service sections ---- */
+.transformation-visual,
+.data-cleanup,
+.data-extraction,
+.analysis-visualization,
+.data-handoff,
+.portfolio-infrastructure,
+.broader-curiosity {
+  padding: 4rem 0;
+}
+
+.data-cleanup,
+.analysis-visualization,
+.portfolio-infrastructure,
+.broader-curiosity {
+  background: rgba(13, 13, 13, 0.28);
+}
+
+.transformation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(130px, auto) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.content-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.content-card {
+  height: 100%;
+}
+
+.data-cleanup .cleanup-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.5rem;
+}
+
+.service-card ul,
+.service-card ol {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.service-card li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  color: var(--grey-lt);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.service-card li:last-child {
+  border-bottom: 0;
+}
+
+.service-card li::before {
+  content: '\2767';
+  position: absolute;
+  top: 0.48rem;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+
+.service-card .philosophy,
+.service-card .card-note {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(196, 154, 42, 0.18);
+  color: var(--grey-lt);
+  font-size: 0.88rem;
+}
+
+.service-card .philosophy strong {
+  color: var(--parchment);
+  font-weight: 500;
+}
+
+.arrow-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.arrow-cluster span:nth-child(even) {
+  color: var(--parchment);
+}
+
+.arrow-cluster .flow-label,
+.arrow-cluster .flow-review {
+  color: var(--grey);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.arrow-cluster .flow-review {
+  max-width: 110px;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.example-block {
+  min-height: 0;
+  border-left: 2px solid rgba(196, 154, 42, 0.45);
+  color: var(--parchment-dk);
+  font-size: 0.82rem;
+}
+
+.service-card .example-note {
+  margin-top: 1rem;
+  color: var(--grey);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.curiosity-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.curiosity-card p {
+  color: var(--parchment-dk);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.cta-card .inquiry-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 620px;
+  margin: 1rem auto 1.5rem;
+  list-style: none;
+  text-align: left;
+}
+
+.cta-card .inquiry-points li {
+  padding: 0.65rem 0.8rem;
+  background: rgba(245, 232, 214, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--grey-lt);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 /* ---- Starting points ---- */
 .starting-points {
   padding: 4rem 0;
@@ -892,6 +1052,11 @@ footer p {
   .special-projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .transformation-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(100px, auto) minmax(0, 1fr);
+    gap: 0.75rem;
+  }
 }
 
 @media (max-width: 700px) {
@@ -928,6 +1093,37 @@ footer p {
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .content-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .data-cleanup .cleanup-features,
+  .cta-card .inquiry-points {
+    grid-template-columns: 1fr;
+  }
+
+  .transformation-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .arrow-cluster {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    padding: 0.5rem 0;
+  }
+
+  .arrow-cluster .flow-review {
+    max-width: none;
+    margin: 0 0 0 0.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem 1.25rem;
   }
 
   .cta-card {
