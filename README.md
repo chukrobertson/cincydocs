@@ -1,6 +1,6 @@
 # Cincinnati Document Services
 
-Documentation, SOPs, writing, fillable forms, data organization, research, dashboards, photo restoration, and document services for Cincinnati-area individuals and small organizations. Ohio notary by appointment is a secondary offering.
+Project-based document formatting, spreadsheet cleanup, data extraction, and public-information research for individuals, small businesses, independent contractors, and organizations throughout the United States. Cincinnati-area mobile notary by appointment is a secondary offering.
 
 **Website:** [cincydocs.com](https://cincydocs.com) | **Call/Text:** 513 580 4150
 
@@ -16,6 +16,24 @@ Documentation, SOPs, writing, fillable forms, data organization, research, dashb
 | `tests/` | Test suite |
 
 The site is a static HTML/CSS site deployed from the `docs/` folder via GitHub Pages. The forms library is retained in the repository but is not published. Its generator writes an ignored local preview to `build/forms-library-preview/`.
+
+### Website pages and inquiries
+
+- `docs/index.html`: project-focused homepage, starting-price guidance, process, and example previews.
+- `docs/services.html`: document, spreadsheet/data, and research service details.
+- `docs/projects.html`: three explicitly labeled fictional demonstration projects. Add future project examples as additional `<section class="project-example">` blocks; obtain permission and remove confidential details before publishing client work.
+- `docs/notary.html`: Cincinnati-area mobile notary by appointment, Ohio fee source, and appointment request.
+- `docs/about.html`: positioning and working approach.
+- `docs/quote.html`: guided project inquiry.
+- `docs/site.js`: accessible mobile menu, service-category prefilling, and email draft preparation; shared styles are in `docs/style.css`.
+
+The project and appointment forms **prepare an email; they do not submit to a server**. Visitors review the prepared request and explicitly open their email app, then send to the existing `hello@cincydocs.com` address. A copy option (with manual-selection fallback) works when no email app is configured. With JavaScript disabled, the contact address and instructions remain available. The site stores no intake data, accepts no uploads, and collects no payments. No message delivery or appointment confirmation is claimed by the browser.
+
+The $35 / $50 / $75 starting prices are guidance subject to project scope. An owner should periodically review these prices and the linked Ohio notary fee rules. Travel charges are separately disclosed and agreed; no travel rate or guaranteed availability is advertised.
+
+For a local preview, run `python3 -m http.server 8793 --directory docs`, then open `http://localhost:8793`. The existing GitHub Pages publishing configuration and `docs/CNAME` are retained. Repository edits are not live until committed and published through the current Pages workflow.
+
+The next infrastructure improvement is a server-backed inquiry endpoint with spam controls, clear delivery/failure states, and verified delivery to the business inbox. Until one is configured, retain the honest email-based workflow. Sensitive uploads require an appropriate access-controlled transfer setup before they can be advertised.
 
 ---
 

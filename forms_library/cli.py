@@ -261,7 +261,9 @@ def build(
     builder = Builder(output_dir=output_dir, templates_dir=TEMPLATES_DIR, data_dir=DATA_DIR)
     builder.build(manifests)
 
-    console.print(f"[green]Built {forms_count} form(s) for local preview at {output_dir / 'forms'}[/green]")
+    console.print(
+        f"[green]Built {forms_count} form(s) for local preview at {output_dir / 'forms'}[/green]"
+    )
 
 
 @app.command()

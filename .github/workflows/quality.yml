@@ -41,9 +41,9 @@ jobs:
       - name: Check local site references
         run: python tools/check_static_site.py
 
-      - name: Check retired mobile claims
+      - name: Check retired mobile office claims
         run: |
-          if grep -RniE 'mobile office|mobile notary|wherever you are|bring the office|come equipped' docs forms_library README.md; then
-            echo "Retired mobile positioning found in public or source copy."
+          if grep -RniE 'mobile office|wherever you are|bring the office|come equipped' docs forms_library README.md; then
+            echo "Retired mobile office positioning found in public or source copy."
             exit 1
           fi

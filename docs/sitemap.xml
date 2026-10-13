@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://cincydocs.com/</loc></url>
+  <url><loc>https://cincydocs.com/services.html</loc></url>
+  <url><loc>https://cincydocs.com/projects.html</loc></url>
+  <url><loc>https://cincydocs.com/notary.html</loc></url>
+  <url><loc>https://cincydocs.com/about.html</loc></url>
+  <url><loc>https://cincydocs.com/quote.html</loc></url>
 </urlset>
