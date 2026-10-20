@@ -78,8 +78,10 @@
         `Appointment area / ZIP: ${value('location')}`,
         `Preferred date: ${value('date', 'Flexible / to be agreed')}`,
         `Preferred time: ${value('time', 'Flexible / to be agreed')}`,
+        `General document type: ${value('document_type')}`,
+        `Number of signers: ${value('signers', 'Not known')}`,
         '',
-        'Document type and appointment details:',
+        'Additional appointment information:',
       );
     }
     lines.push(value('description'), '', 'Please reply to discuss scope, requirements, price, and availability.');
