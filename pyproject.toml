@@ -17,7 +17,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-pdf = ["pymupdf>=1.24"]
+pdf = [
+    "pymupdf>=1.24",
+    "reportlab>=4.0",
+]
 dev = [
     "pytest>=8.0",
     "ruff>=0.5",
@@ -27,7 +30,7 @@ dev = [
 include = ["forms_library*"]
 
 [tool.setuptools.package-data]
-forms_library = ["templates/*.html", "static/*.js"]
+forms_library = ["assets/*.pdf", "templates/*.html", "static/*.js"]
 
 [tool.ruff]
 line-length = 100

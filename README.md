@@ -1,222 +1,66 @@
 # Cincinnati Document Services
 
-Cincinnati-area mobile notary services by appointment at agreed Ohio locations. The repository retains the earlier document, spreadsheet, data, research, and demonstration-project pages so those offerings can be revisited later without keeping them in the site's primary marketing flow.
+CincyDocs is a small, mobile-notary-first website for Cincinnati and surrounding Ohio communities.
 
-**Website:** [cincydocs.com](https://cincydocs.com) | **Call/Text:** 513 580 4150
+- Website: [cincydocs.com](https://cincydocs.com)
+- Call or text: 513-580-4150
+- Email: hello@cincydocs.com
 
----
+## Public site
 
-## Repository Structure
+GitHub Pages serves the static site from `docs/`.
 
-| Directory | Purpose |
-|-----------|---------|
-| `docs/`   | GitHub Pages website (deployed to cincydocs.com) |
-| `forms_library/` | Python CLI and templates for the retained local forms library |
-| `data/` | Form manifests, downloads, and extracted text |
-| `tests/` | Test suite |
+| File | Purpose |
+|---|---|
+| `docs/index.html` | Mobile notary homepage |
+| `docs/notary.html` | Service details, pricing guidance, and appointment request |
+| `docs/about.html` | Short local-service overview |
+| `docs/services.html` | Compatibility redirect to notary services |
+| `docs/projects.html` | Compatibility redirect to the homepage |
+| `docs/quote.html` | Compatibility redirect to the appointment request |
 
-The site is a static HTML/CSS site deployed from the `docs/` folder via GitHub Pages. The forms library is retained in the repository but is not published. Its generator writes an ignored local preview to `build/forms-library-preview/`.
+The appointment form prepares an email in the visitor's browser. It does not submit data to a server, upload files, accept payment, or confirm an appointment.
 
-### Website pages and inquiries
-
-- `docs/index.html`: mobile-notary-first homepage with services, process, Ohio fee guidance, service area, and appointment calls to action.
-- `docs/notary.html`: notary service details, Ohio fee source, requirements, and appointment request.
-- `docs/about.html`: concise local-service positioning and appointment expectations.
-- `docs/services.html`: retained document, spreadsheet/data, and research service details; intentionally omitted from primary navigation.
-- `docs/projects.html`: retained fictional demonstration projects; intentionally omitted from primary navigation.
-- `docs/quote.html`: retained guided project inquiry for compatibility with existing links.
-- `docs/site.js`: accessible mobile menu, service-category prefilling, and email draft preparation; shared styles are in `docs/style.css`.
-
-The appointment and retained project forms **prepare an email; they do not submit to a server**. Visitors review the prepared request and explicitly open their email app, then send to `hello@cincydocs.com`. A copy option (with manual-selection fallback) works when no email app is configured. With JavaScript disabled, the contact address and instructions remain available. The site stores no intake data, accepts no uploads, and collects no payments. No message delivery or appointment confirmation is claimed by the browser.
-
-The public notary copy states up to $5 per traditional notarial act, not per signature, and links to Ohio Revised Code section 147.08. Any reasonable mobile travel fee is quoted and agreed before the notarial act. No travel rate, guaranteed availability, office address, or operating hours are advertised.
-
-For a local preview, run `python3 -m http.server 8793 --directory docs`, then open `http://localhost:8793`. The existing GitHub Pages publishing configuration and `docs/CNAME` are retained. Repository edits are not live until committed and published through the current Pages workflow.
-
-Until a tested submission service is deliberately configured, retain the honest email-draft workflow. Do not add sensitive uploads, third-party scheduling, payment collection, or a public meeting address without a separate reviewed implementation.
-
----
-
-## Forms Library
-
-A searchable directory of official public forms with plain-language descriptions. The library is currently available only as a local preview and is not served from cincydocs.com.
-
-**No runtime server required.** Run the CLI locally when adding, updating, or previewing forms.
-
-### Currently in the Local Library
-
-#### Bundled in the Preview (4)
-Forms copied into the generated local preview with direct PDF download:
-
-| Form | Agency | Notes |
-|------|--------|-------|
-| W-9 (Taxpayer ID) | IRS | 6 pages, fillable |
-| W-4 (Withholding) | IRS | 5 pages, fillable |
-| SS-4 (Employer ID) | IRS | 2 pages, fillable |
-| SS-5 (Social Security Card) | SSA | 5 pages, fillable |
-
-#### Agency-Link Only (11)
-Forms linked to official sources:
-
-| Form | Agency |
-|------|--------|
-| 1040 (Income Tax) | IRS |
-| BMV 3771 (Power of Attorney) | Ohio BMV |
-| BMV 3774 (Certificate of Title) | Ohio BMV |
-| BMV 3770 (Casual Sale Title) | Ohio BMV |
-| BMV 3811 (Beneficiary Designation) | Ohio BMV |
-| SSA-1-BK (Retirement Benefits) | SSA |
-| SSA-16-BK (Disability Benefits) | SSA |
-| SSA-827 (Disclose Information) | SSA |
-| Auditor Forms Directory | Hamilton County |
-| Vital Records Requests | Hamilton County |
-| Notary FAQ | Ohio Secretary of State |
-
-### Quick Start
+Preview locally:
 
 ```bash
-# Create an isolated environment (Python 3.12+; do not copy .venv between machines)
+python3 -m http.server 8793 --directory docs
+```
+
+## Retained forms library
+
+The Python forms library remains available for future use, but it is not published on cincydocs.com. Its generated preview is written to the ignored `build/forms-library-preview/` directory.
+
+The tracked printable journal is:
+
+```text
+forms_library/assets/cds-ohio-notary-journal.pdf
+```
+
+Rebuild it after changing `tools/build_notary_journal.py`:
+
+```bash
+python tools/build_notary_journal.py
+```
+
+The journal is for traditional in-person notarizations. It is not an electronic journal and does not satisfy Ohio's electronic-journal requirements for online notarizations.
+
+## Development
+
+Python 3.12 or newer is expected.
+
+```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -e ".[dev,pdf]"
-
-# Validate all manifest files
 .venv/bin/python -m forms_library validate
-
-# Build the local, non-published preview
 .venv/bin/python -m forms_library build
-
-# Check internal HTML, CSS, and asset references
 .venv/bin/python tools/check_static_site.py
-
-# Run tests
-.venv/bin/python -m pytest tests/ -v
+.venv/bin/python -m pytest tests/ -q
+.venv/bin/ruff check .
 ```
 
-### CLI Commands
-
-| Command | Description |
-|---------|-------------|
-| `validate` | Validate all manifest YAML files |
-| `import-manifest <file>` | Validate and preview a manifest |
-| `fetch <slug>` | Download a form PDF from its official URL |
-| `register <slug> <file>` | Register a manually downloaded PDF |
-| `build` | Generate a local preview in `build/forms-library-preview/` |
-| `verify --all` | Check all form URLs for broken links (HEAD with GET fallback); saves a Cincinnati-time run timestamp |
-| `report` | Generate a maintenance report (broken links, stale verifications) |
-| `list-forms` | List forms, filterable by status, category, or jurisdiction |
-
-### Adding a New Form
-
-1. Create or edit a YAML manifest in `data/manifests/`:
-
-```yaml
-forms:
-  - slug: example-form
-    title: Example Official Form
-    form_number: FORM-123
-    agency: Example Agency
-    jurisdiction: Ohio
-    category: Motor vehicles
-    official_page_url: https://example.gov/form-page
-    official_download_url: https://example.gov/form.pdf
-    description: Brief description of the form.
-    plain_language_summary: Plain-English explanation of what this form is for.
-    redistribution_status: review_required
-    publication_status: hidden
-    review_level: standard
-    tags:
-      - example
-      - plain-language phrase
-```
-
-2. Validate:
-
-```bash
-python3 -m forms_library validate
-```
-
-3. Download the PDF and record metadata (or skip for link-only forms):
-
-```bash
-python3 -m forms_library fetch example-form
-# OR for manually downloaded files:
-python3 -m forms_library register example-form ~/Downloads/form.pdf
-```
-
-4. For locally hosted forms, update the manifest with the fetch output:
-   - Set `publication_status: locally_hosted`
-   - Set `locally_stored: true`
-   - Set `local_file_path: data/downloads/<dir>/<filename>`
-   - Set `page_count`, `file_size`, `sha256`, `fillable` from the fetch output
-   - Set `last_verified_at` to today's date
-
-5. For link-only forms, change `publication_status: hidden` to `link_only`.
-
-6. Build the local preview:
-
-```bash
-python3 -m forms_library build
-```
-
-### Publication Statuses
-
-| Status | Included in preview? | Description |
-|--------|-------------------|-------------|
-| `hidden` | No | Not yet reviewed |
-| `internal_only` | No | Internal templates only |
-| `link_only` | Yes | Links to official source only |
-| `locally_hosted` | Yes | PDF copied into the generated local preview |
-| `archived` | No | No longer current |
-| `superseded` | No | Replaced by newer version |
-
-Only `link_only` and `locally_hosted` forms are included in the generated local preview. The preview output is ignored by Git and is not part of the deployed `docs/` site.
-
-### Review Levels
-
-Forms in sensitive categories (courts, probate, immigration, family, tax, benefits) are automatically assigned `elevated` review level. Review before publication.
-
-### Security
-
-- URL validation blocks private IPs, localhost, and metadata services (SSRF protection)
-- Only HTTPS (and explicitly approved HTTP) schemes allowed
-- Downloaded files are content-type validated and SHA-256 hashed
-- Form filenames are sanitized
-- No server-side attack surface (static site)
-
-### Legal and Content Safety
-
-- Every public form page displays issuing agency, jurisdiction, official source, and verification date
-- Disclaimers are included on all form detail pages
-- Requirements (notarization, witnesses, fees) are only displayed when verified with a source citation
-- Cincinnati Document Services is clearly distinguished from government agencies and law firms
-
-### Directory Layout
-
-```
-data/
-  manifests/          # YAML form manifests (source of truth, committed to git)
-    irs.yaml          # IRS forms (W-9, W-4, SS-4, 1040)
-    ssa.yaml          # SSA forms (SS-5, SSA-827, SSA-1, SSA-16)
-    ohio_bmv.yaml     # Ohio BMV forms (3770, 3771, 3774, 3811)
-    ohio_local.yaml   # Hamilton County, Ohio SOS
-    internal_templates.yaml  # Internal CDS forms (not public)
-  downloads/          # Fetched form PDFs (gitignored — copied into local previews)
-    federal/
-    ohio/
-  extracted_text/     # Extracted PDF text (gitignored)
-  reports/            # Generated verify/report output (gitignored)
-
-build/forms-library-preview/  # Generated local preview (gitignored)
-  style.css
-  forms-search.js
-  forms/
-    index.html        # Search/browse page
-    forms.json        # Client-side search index
-    irs-form-w9/      # Per-form directory
-      index.html      # Form detail page
-      irs-form-w9.pdf # PDF (locally_hosted only)
-```
+The forms preview includes only manifest entries marked `link_only` or `locally_hosted`. Downloads, extracted text, reports, previews, private commission records, and local print exports stay out of Git.
 
 ## License
 
-This repository's source code is licensed under the MIT License. The website content in `docs/` is copyright Cincinnati Document Services.
+Source code is licensed under the MIT License. Website copy and Cincinnati Document Services-branded forms are copyright Cincinnati Document Services.

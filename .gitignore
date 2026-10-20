@@ -16,9 +16,13 @@ data/downloads/
 data/extracted_text/
 data/reports/
 
+# Local business records and print exports
+Commisions/
+Commissions/
+two-up-4x6.pdf
+
 # Editor
 .vscode/
 .idea/
 *.swp
 *.swo
-

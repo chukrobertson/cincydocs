@@ -29,15 +29,6 @@
   const preparedRequest = result.querySelector('textarea');
   const emailDraft = result.querySelector('.email-draft');
   const copyStatus = result.querySelector('.copy-status');
-  const isProject = form.dataset.requestForm === 'project';
-
-  // Prefill only recognized service choices; never inject URL content into the page.
-  if (isProject) {
-    const service = new URLSearchParams(window.location.search).get('service');
-    if (['documents', 'pdf', 'data', 'research', 'other'].includes(service)) {
-      form.elements.service.value = service;
-    }
-  }
 
   const date = form.elements.date;
   const today = new Date();
@@ -56,34 +47,21 @@
     });
     if (!form.reportValidity()) return;
     const value = (name, fallback = 'Not provided') => form.elements[name].value.trim() || fallback;
-    const subject = isProject ? 'Project quote request — CincyDocs' : 'Notary appointment request — CincyDocs';
+    const subject = 'Notary appointment request — CincyDocs';
     const lines = [
       subject,
       '',
       `Name: ${value('name')}`,
       `Reply email: ${value('email')}`,
+      `Phone: ${value('phone')}`,
+      `Appointment area / ZIP: ${value('location')}`,
+      `Preferred date: ${value('date', 'Flexible / to be agreed')}`,
+      `Preferred time: ${value('time', 'Flexible / to be agreed')}`,
+      `General document type: ${value('document_type')}`,
+      `Number of signers: ${value('signers', 'Not known')}`,
+      '',
+      'Additional appointment information:',
     ];
-    if (isProject) {
-      lines.push(
-        `Business / organization: ${value('organization')}`,
-        `Service: ${form.elements.service.selectedOptions[0].textContent.trim()}`,
-        `Desired completion date: ${value('date', 'Flexible / to be agreed')}`,
-        `File count / dataset size: ${value('size')}`,
-        '',
-        'Project description:',
-      );
-    } else {
-      lines.push(
-        `Phone: ${value('phone')}`,
-        `Appointment area / ZIP: ${value('location')}`,
-        `Preferred date: ${value('date', 'Flexible / to be agreed')}`,
-        `Preferred time: ${value('time', 'Flexible / to be agreed')}`,
-        `General document type: ${value('document_type')}`,
-        `Number of signers: ${value('signers', 'Not known')}`,
-        '',
-        'Additional appointment information:',
-      );
-    }
     lines.push(value('description'), '', 'Please reply to discuss scope, requirements, price, and availability.');
     const body = lines.join('\n').replace(/\r?\n/g, '\r\n');
     // encodeURIComponent keeps ampersands, newlines, and user text inside the email body.

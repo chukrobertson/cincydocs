@@ -1,0 +1,45 @@
+forms:
+  - slug: cds-ohio-traditional-notary-journal
+    title: Ohio Traditional Notary Journal
+    form_number: CDS-NJ-001
+    agency: Cincinnati Document Services
+    jurisdiction: Ohio
+    category: Notary
+    description: Printable paper journal for recording traditional in-person notarial acts in Ohio.
+    plain_language_summary: Use one entry for each signer and notarial act. The journal records the document description, act, identification method, signer journal signature, fees, safeguards, and notes while avoiding full identification numbers and sensitive document contents.
+    locally_stored: true
+    local_file_path: forms_library/assets/cds-ohio-notary-journal.pdf
+    redistribution_status: permitted
+    publication_status: locally_hosted
+    form_status: active
+    page_count: 9
+    file_size: 28113
+    mime_type: application/pdf
+    sha256: cccc3747db09ccad06ee78a8076cf29b4ccb5aa794757d0adc566830fc58fa0c
+    fillable: false
+    instructions_summary: Print the cover and entry pages on US Letter paper. This journal is for traditional in-person notarizations only and is not a substitute for the electronic journal required for online notarizations.
+    review_level: standard
+    last_verified_at: 2026-10-20
+    created_at: 2026-10-20
+    updated_at: 2026-10-20
+    tags:
+      - printable notary journal
+      - Ohio notary
+      - traditional notarization
+      - notarial act log
+      - mobile notary records
+    source_citations:
+      - claim_type: instructions
+        claim_text: Ohio does not require a journal for traditional notarizations, but the Secretary of State strongly recommends logging every notarial act as a best practice.
+        source_title: Notary Resources and Frequently Asked Questions
+        source_url: https://www.ohiosos.gov/notary/become-a-notary-in-ohio/resources-and-frequently-asked-questions
+        source_agency: Ohio Secretary of State
+        verified_at: 2026-10-20
+        verification_status: verified
+      - claim_type: instructions
+        claim_text: Online notaries must maintain electronic journals under Ohio Revised Code section 147.65.
+        source_title: Ohio Revised Code Chapter 147
+        source_url: https://codes.ohio.gov/ohio-revised-code/chapter-147
+        source_agency: Ohio Legislature
+        verified_at: 2026-10-20
+        verification_status: verified

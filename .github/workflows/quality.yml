@@ -32,6 +32,12 @@ jobs:
       - name: Validate manifests
         run: python -m forms_library validate
 
+      - name: Rebuild printable notary journal
+        run: python tools/build_notary_journal.py
+
+      - name: Check deterministic journal output
+        run: git diff --exit-code -- forms_library/assets/cds-ohio-notary-journal.pdf
+
       - name: Build static forms pages
         run: python -m forms_library build
 
